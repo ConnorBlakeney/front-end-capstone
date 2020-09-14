@@ -1,12 +1,16 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { HomeList } from "./home/HomeList";
+import { HomeForm } from "./home/HomeForm";
+import { FightProvider } from "./fights/FightProvider";
 
 export const ApplicationViews = (props) => {
     return (
         <>
-            
-           <HomeList />
+         <FightProvider>   
+            <HomeList />
+            <HomeForm />
+        </FightProvider>
 
 
             

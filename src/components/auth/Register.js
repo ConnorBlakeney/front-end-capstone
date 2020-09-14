@@ -97,7 +97,7 @@ export const Register = (props) => {
                 </fieldset>
                 <fieldset>
                     <button type="submit">
-                        Sign in
+                        Register
                     </button>
                 </fieldset>
             </form>

@@ -10,7 +10,7 @@ import './main.css'
 export const Capstone = () => (
     <>
         <Route render={() => {
-            if (localStorage.getItem("")) {
+            if (localStorage.getItem("current_user")) {
                 return (
                     <>
                         <Route render={props => <NavBar {...props} />} />

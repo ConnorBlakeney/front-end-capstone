@@ -1,11 +1,12 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { HomeList } from "./home/HomeList";
 
 export const ApplicationViews = (props) => {
     return (
         <>
             
-           
+           <HomeList />
 
 
             

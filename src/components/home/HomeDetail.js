@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useContext } from "react"
 import { FightContext } from "../fights/FightProvider"
-// import { ReactModal } from "react-modal";
 import "./Home.css"
-
-// ReactModal.setAppElement("#root");
 
 export const HomeDetail = (props) => {
     const { fights, getFights } = useContext(FightContext)
@@ -22,35 +19,16 @@ export const HomeDetail = (props) => {
 
 
     return (
-        <section className="fight">
-            <h3>{fight.R_fighter}   Name    {fight.B_fighter}</h3>
+        <section className="fight__stats card">
+            <h3>Fight Stats</h3>
+            <div>{fight.R_fighter}   <span>vs</span>    {fight.B_fighter}</div>
+            <div>Location: {fight.location}</div>
+            <div>Date: {fight.date}</div>
+            <div>Rounds: {fight.no_of_rounds}</div>
             <div>{fight.R_age}   Age    {fight.B_age}</div>
             <div>{fight.R_wins}-{fight.R_losses}   UFC Record    {fight.B_wins}-{fight.B_losses}</div>
-            {/* <div>{fight.R_fighter}   Name    {fight.B_fighter}</div> */}
-            {/* <div>{fight.R_fighter}   Name    {fight.B_fighter}</div> */}
+            <div>{fight.weight_class}   Weight Class    {fight.weight_class}</div>
+            <div>{fight.R_current_win_streak}   Current Win Streak   {fight.B_current_win_streak}</div>
         </section>
     )
 }
-
-// export default function App() {
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   function toggleModal() {
-//     setIsOpen(!isOpen);
-//   }
-
-//   return (
-//     <div className="App">
-//       <button onClick={toggleModal}>Open modal</button>
-
-//       <ReactModal
-//         isOpen={isOpen}
-//         onRequestClose={toggleModal}
-//         contentLabel="My dialog"
-//       >
-//         <div>My modal dialog.</div>
-//         <button onClick={toggleModal}>Close modal</button>
-//       </ReactModal>
-//     </div>
-//   );
-// }

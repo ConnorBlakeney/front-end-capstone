@@ -15,7 +15,8 @@ h2 {
 }
 
 span {
-   
+   margin: 0.5rem;
+   font-weight: bold;
 }
 
 .fight__stats {

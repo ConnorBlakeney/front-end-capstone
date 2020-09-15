@@ -3,6 +3,8 @@ import { Route } from "react-router-dom"
 import { HomeForm } from "./home/HomeForm";
 import { FightProvider } from "./fights/FightProvider";
 import { HomeDetail } from "./home/HomeDetail";
+import { FriendProvider } from "./friends/FriendsProvider";
+import { FriendForm } from "./friends/FriendsForm";
 
 export const ApplicationViews = (props) => {
     return (
@@ -16,6 +18,13 @@ export const ApplicationViews = (props) => {
                     props => <HomeDetail {...props} />
                 } />
         </FightProvider>
+
+         <FriendProvider>
+            <Route path="/scores">
+                    <FriendForm />
+            </Route>   
+            
+        </FriendProvider>
 
 
             

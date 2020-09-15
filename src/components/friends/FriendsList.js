@@ -15,12 +15,12 @@ export const FriendsList = ({ history }) => {
 
     // Initialization effect hook -> Go get fight data
     useEffect(() => {
-        getFights()
+        getFriends()
     }, [])
 
     useEffect(() => {
-        setFiltered(fights)
-    }, [fights])
+        setFiltered(friends)
+    }, [friends])
 
 
     return (
@@ -28,9 +28,7 @@ export const FriendsList = ({ history }) => {
             <div className="fights">
                 {
 
-                    sortedFights.slice(5, 10).map(fight => {
-                        return <Home key={fight.id} fight={fight} />
-                    })
+                    
                 }
             </div>
         

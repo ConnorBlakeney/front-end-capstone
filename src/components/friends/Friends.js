@@ -1,5 +1,6 @@
 import React from "react"
 import "./Home.css"
+import { FriendContext } from "./FriendsProvider";
 import { Link } from "react-router-dom"
 
 export default ({ friend }) => (

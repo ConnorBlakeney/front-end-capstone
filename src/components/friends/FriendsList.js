@@ -25,7 +25,7 @@ export const FriendsList = ({ history }) => {
 
     return (
         
-            <div className="fights">
+            <div className="friends">
                 {
 
                     

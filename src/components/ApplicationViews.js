@@ -8,7 +8,6 @@ export const ApplicationViews = (props) => {
     return (
         <>
          <FightProvider>   
-            <HomeList />
             <HomeForm />
         </FightProvider>
 

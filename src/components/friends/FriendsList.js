@@ -3,31 +3,33 @@ import { FriendContext } from "./FriendsProvider"
 import Friends from "./Friends"
 import "./Friends.css"
 
-export const FriendsList = ({ history }) => {
+export const FriendsList = ({ props }) => {
     const { getFriends, friends } = useContext(FriendContext)
 
     const [filteredFriends, setFiltered] = useState([])
 
-    // const sortedFights = [...filteredFights].sort((a, b) => {
-    //     return b.date - a.date;
-    // })
-
 
     // Initialization effect hook -> Go get fight data
+    const [friend, setFriend] = useState({})
+
     useEffect(() => {
+        console.log("friends list")
         getFriends()
     }, [])
 
     useEffect(() => {
-        setFiltered(friends)
+        const friend = friends.find(f => f.id === parseInt(props.match.params.friendId)) || {}
+        setFriend(friend)
+        console.log(friend)
     }, [friends])
+
 
 
     return (
         
             <div className="friends">
                 {
-
+                    <Friends/>
                     
                 }
             </div>

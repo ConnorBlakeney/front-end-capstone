@@ -7,8 +7,11 @@ import { HomeDetail } from "./home/HomeDetail";
 export const ApplicationViews = (props) => {
     return (
         <>
-         <FightProvider>   
-            <HomeForm />
+            
+         <FightProvider>
+            <Route exact path="/">
+                    <HomeForm />
+            </Route>   
             <Route path="/fights/:fightId(\d+)" render={
                     props => <HomeDetail {...props} />
                 } />

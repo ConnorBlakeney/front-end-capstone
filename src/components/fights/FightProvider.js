@@ -7,13 +7,13 @@ export const FightProvider = (props) => {
     const [searchTerms, setTerms] = useState("")
 
     const getFights = () => {
-        return fetch("http://localhost:8088/recentFights")
+        return fetch("http://localhost:8088/fights")
             .then(res => res.json())
             .then(setFights)
     }
 
     const getFightById = (id) => {
-        return fetch(`http://localhost:8088/recentFights/${id}?_expand=scorecard&_expand=user`)
+        return fetch(`http://localhost:8088/fights/${id}?_expand=scorecard&_expand=user`)
             .then(res => res.json())
     }
 

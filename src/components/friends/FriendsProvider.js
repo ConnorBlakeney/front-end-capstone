@@ -7,18 +7,18 @@ export const FriendProvider = (props) => {
     const [searchTerms, setTerms] = useState("")
 
     const getFriends = () => {
-        return fetch("http://localhost:8088/userFriends")
+        return fetch("http://localhost:8088/friends")
             .then(res => res.json())
             .then(setFriends)
     }
 
     const getFriendById = (id) => {
-        return fetch(`http://localhost:8088/userFriends/${id}?_expand=scorecard&_expand=user`)
+        return fetch(`http://localhost:8088/friends/${id}?_expand=scorecard&_expand=user`)
             .then(res => res.json())
     }
 
     const addFriend = friend => {
-        return fetch("http://localhost:8088/userFriends", {
+        return fetch("http://localhost:8088/friends", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -29,7 +29,7 @@ export const FriendProvider = (props) => {
     }
 
     const editFriend = friend => {
-        return fetch(`http://localhost:8088/userFriends/${friend.id}`, {
+        return fetch(`http://localhost:8088/friends/${friend.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -40,7 +40,7 @@ export const FriendProvider = (props) => {
     }
 
     const deleteFriend = (friendId) => {
-        return fetch(`http://localhost:8088/userFriend/${friendId}`, {
+        return fetch(`http://localhost:8088/friend/${friendId}`, {
             method: "DELETE"
         })
             .then(getFriends)

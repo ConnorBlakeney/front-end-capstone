@@ -1,20 +1,23 @@
 import React, { useState, useContext, useEffect } from "react"
 import { FriendContext } from "./FriendsProvider"
+import { UserContext } from "./UserProvider";
 import Friends from "./Friends"
 import "./Friends.css"
 
 export const FriendsList = ({ props }) => {
     const { getFriends, friends } = useContext(FriendContext)
+    const { getUsers, users } = useContext(UserContext)
 
     const [filteredFriends, setFiltered] = useState([])
 
 
     // Initialization effect hook -> Go get fight data
     const [friend, setFriend] = useState({})
+    const [user, setUser] = useState({})
 
     useEffect(() => {
         console.log("friends list")
-        getFriends()
+        getFriends().then(getUsers)
     }, [])
 
     useEffect(() => {
@@ -29,7 +32,9 @@ export const FriendsList = ({ props }) => {
         
             <div className="friends">
                 {
-                    <Friends/>
+                    filteredFriends.map(friend => {
+                        return <Friends key={friend.id} friend={friend} />
+                    })
                     
                 }
             </div>

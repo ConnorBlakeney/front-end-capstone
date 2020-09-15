@@ -5,6 +5,8 @@ import { FightProvider } from "./fights/FightProvider";
 import { HomeDetail } from "./home/HomeDetail";
 import { FriendProvider } from "./friends/FriendsProvider";
 import { FriendForm } from "./friends/FriendsForm";
+import { FriendsList } from "./friends/FriendsList";
+import { UserProvider } from "./friends/UserProvider";
 
 export const ApplicationViews = (props) => {
     return (
@@ -19,13 +21,16 @@ export const ApplicationViews = (props) => {
                 } />
         </FightProvider>
 
-         <FriendProvider>
-            <Route path="/scores">
-                    <FriendForm />
-            </Route>   
-            
-        </FriendProvider>
-
+        <UserProvider>
+            <FriendProvider>
+                <Route path="/scores">
+                        <FriendForm />
+                        <Route path="/friends/:friendId(\d+)" render={
+                            props => <FriendForm {...props} />
+                        } />
+                </Route>   
+            </FriendProvider>
+        </UserProvider>
 
             
 

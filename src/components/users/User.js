@@ -10,7 +10,7 @@ export default ({ friend, user }) => {
 
     <section key={user.id} className="user">
         <div className="user__name">
-            {user.id !== currentUserId ? user.name : ""}
+            {user.id !== currentUserId ? user.name : ""} 
         </div>
     </section>
     )

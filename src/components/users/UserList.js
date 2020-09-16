@@ -47,7 +47,6 @@ export const UserList = props => {
                 {
                     users.map(user => {
                         return <User key={user.id} friend={friend} user={user} />
-                        // return currentUserId
                     })
                     
                 }

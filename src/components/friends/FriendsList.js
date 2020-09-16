@@ -5,11 +5,12 @@ import Friends from "./Friends"
 import "./Friends.css"
 
 export const FriendsList = props => {
-    const { getFriends, friends } = useContext(FriendContext)
+    const { getFriends, friends, deleteFriend } = useContext(FriendContext)
     const { getUsers, users } = useContext(UserContext)
 
     // const [filteredFriends, setFiltered] = useState([])
     const currentUserId = parseInt(localStorage.getItem("current_user"))
+    // const friendId = 
     const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
 
     // Initialization effect hook -> Go get fight data
@@ -33,14 +34,16 @@ export const FriendsList = props => {
     }, [friends])
 
     return (
-        
+        <>
             <div className="friends">
                 { 
                     filteredFriends.map(friend => {
-                        return <Friends key={friend.id} friend={friend} user={user} />
+                        
+                              return <Friends key={friend.id} friend={friend} user={user} />
+                        
                     })
                 }
             </div>
-        
+        </>
     )
 }

@@ -1,10 +1,8 @@
-import React, { useContext } from "react"
-import { FriendContext } from "./FriendsProvider";
+import React from "react"
 import "./Friends.css"
 
 
-export default ({ friend, user }) => {
-    const { deleteFriends } = useContext(FriendContext)
+export default ({ friend, user, friendName }) => {
     const currentUserId = parseInt(localStorage.getItem("current_user"))
 
 
@@ -13,7 +11,7 @@ export default ({ friend, user }) => {
 
     <section key={friend.id} className="friend">
         <div className="friend__name">
-            {currentUserId === friend.userId ? user.name : ""} <button onClick={deleteFriends}>Delete</button>
+            {currentUserId === friend.userId ? friend.id : ""}
         </div>
     </section>
     )

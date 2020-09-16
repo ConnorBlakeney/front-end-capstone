@@ -20,11 +20,11 @@ export const HomeForm = (props) => {
             <h2 className="homeForm__title">Home Page</h2>
             <div className="fight__cards">
                 <fieldset className="form__upcoming card">
-                    <h3>Upcoming Main Card Fights: </h3>
+                    <h3>Upcoming Main Card Fights</h3>
                     <UpcomingList/>
                 </fieldset>
                 <fieldset className="form__previous card">
-                    <h3>Previous Main Card Fights: </h3>
+                    <h3>Previous Main Card Fights</h3>
                     <RecentList/>
                 </fieldset>
             </div>

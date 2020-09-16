@@ -1,11 +1,17 @@
-import React from "react"
+import React, { useEffect } from "react"
 import "./Friends.css"
 
-export default ({ friend, user }) => (
-    
+
+export default ({ friend, user }) => {
+
+    const currentUserId = parseInt(localStorage.getItem("current_user"))
+
+    return (    
+
     <section key={friend.id} className="friend">
-        <h3 className="friend__name">
-            {}
-        </h3>
+        <div className="friend__name">
+            {user.id !== currentUserId ? user.name : ""}
+        </div>
     </section>
-)
+    )
+}

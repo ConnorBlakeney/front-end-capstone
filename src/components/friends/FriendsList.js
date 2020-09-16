@@ -4,26 +4,39 @@ import { UserContext } from "./UserProvider";
 import Friends from "./Friends"
 import "./Friends.css"
 
-export const FriendsList = ({ props }) => {
+export const FriendsList = props => {
     const { getFriends, friends } = useContext(FriendContext)
     const { getUsers, users } = useContext(UserContext)
+    const { getCurrentUser } = useContext(UserContext)
 
     const [filteredFriends, setFiltered] = useState([])
 
+    // const useLocalStateUser = () => {
+    //     const [loc, setLoc] = useState(localStorage.getItem("current_user"))
+
+    //     return [loc, setLoc]
+    // }
 
     // Initialization effect hook -> Go get fight data
     const [friend, setFriend] = useState({})
     const [user, setUser] = useState({})
+    const [currentUser, setCurrentUser] = useState({})
+
+    const currentUserId = parseInt(localStorage.getItem("current_user"))
 
     useEffect(() => {
-        console.log("friends list")
-        getFriends().then(getUsers)
+        getFriends().then(getUsers).then(getCurrentUser)
+        console.log(currentUserId)
     }, [])
 
     useEffect(() => {
-        const friend = friends.find(f => f.id === parseInt(props.match.params.friendId)) || {}
-        setFriend(friend)
-        console.log(friend)
+        setUser(users)
+    }, [users])
+
+    useEffect(() => {
+        // filteredFriends = friends.filter(f => f.userId === user.id) || {}
+        setFriend(friends)
+        console.log(friends)
     }, [friends])
 
 
@@ -32,8 +45,9 @@ export const FriendsList = ({ props }) => {
         
             <div className="friends">
                 {
-                    filteredFriends.map(friend => {
-                        return <Friends key={friend.id} friend={friend} />
+                    users.map(user => {
+                        return <Friends key={user.id} friend={friend} user={user} />
+                        // return currentUserId
                     })
                     
                 }

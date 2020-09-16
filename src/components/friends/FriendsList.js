@@ -27,6 +27,7 @@ export const FriendsList = props => {
 
     useEffect(() => {
         setUser(users)
+        // console.log(users.map(user => user.id === friend.id ? user.name: ""))
     }, [users])
 
     useEffect(() => {
@@ -38,8 +39,11 @@ export const FriendsList = props => {
             <div className="friends">
                 { 
                     filteredFriends.map(friend => {
-                        
-                              return <Friends key={friend.id} friend={friend} user={user} />
+                       
+                        return <Friends key={friend.id} friend={friend} user={user} >
+                            {users.map(user => user.id === friend.id ? user.name: "")}
+                            {console.log(users)}
+                        </Friends>
                         
                     })
                 }
@@ -47,3 +51,5 @@ export const FriendsList = props => {
         </>
     )
 }
+
+    // {users.map(user => user.id === friend.id ? user.name: "")}

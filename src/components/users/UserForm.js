@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from "react"
-import { FriendContext } from "./FriendsProvider";
+import { FriendContext } from "../friends/FriendsProvider";
 import { UserContext } from "../users/UserProvider";
-import { FriendsList } from "./FriendsList";
-import "./Friends.css"
+import { UserList } from "./UserList";
+import "./User.css"
 
-export const FriendForm = (props) => {
+export const UserForm = (props) => {
     // Use the required context providers for data
     const { friends, getFriends } = useContext(FriendContext)
     const { users, getUsers } = useContext(UserContext)
@@ -18,12 +18,11 @@ export const FriendForm = (props) => {
     }, [])
 
     return (
-            <form className="friendForm">
-            <h2 className="friendForm__title">Previous Scores and Friends</h2>
-            <div className="friend__cards">
-                <fieldset className="friend card">
-                    <h3 className="users_header">Friends</h3>
-                    <FriendsList />
+            <form className="userForm">
+            <div className="user__cards">
+                <fieldset className="user card">
+                    <h3 className="users_header">Users</h3>
+                    <UserList />
                 </fieldset>
             </div>
             

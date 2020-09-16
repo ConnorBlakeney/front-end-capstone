@@ -5,7 +5,8 @@ import { FightProvider } from "./fights/FightProvider";
 import { HomeDetail } from "./home/HomeDetail";
 import { FriendProvider } from "./friends/FriendsProvider";
 import { FriendForm } from "./friends/FriendsForm";
-import { UserProvider } from "./friends/UserProvider";
+import { UserProvider } from "./users/UserProvider";
+import { UserForm } from "./users/UserForm";
 
 export const ApplicationViews = (props) => {
     return (
@@ -24,6 +25,7 @@ export const ApplicationViews = (props) => {
             <FriendProvider>
                 <Route path="/scores">
                         <FriendForm />
+                        <UserForm />
                 </Route>   
             </FriendProvider>
         </UserProvider>

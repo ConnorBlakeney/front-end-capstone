@@ -1,11 +1,10 @@
 import React, { useState, useContext, useEffect } from "react"
-import { FriendContext } from "./FriendsProvider"
+import { FriendContext } from "../friends/FriendsProvider"
 import { UserContext } from "../users/UserProvider";
-import Friends from "./Friends"
-import Users from "../users/User"
-import "./Friends.css"
+import User from "../users/User"
+import "./User.css"
 
-export const FriendsList = props => {
+export const UserList = props => {
     const { getFriends, friends } = useContext(FriendContext)
     const { getUsers, users } = useContext(UserContext)
     const { getCurrentUser } = useContext(UserContext)
@@ -32,7 +31,6 @@ export const FriendsList = props => {
 
     useEffect(() => {
         setUser(users)
-        console.log(users)
     }, [users])
 
     useEffect(() => {
@@ -45,14 +43,12 @@ export const FriendsList = props => {
 
     return (
         
-            <div className="friends">
+            <div className="users">
                 {
                     users.map(user => {
-                    friends.map(friend => {
-                        return <Friends key={friend.id} friend={friend} user={user} />
+                        return <User key={user.id} friend={friend} user={user} />
                         // return currentUserId
                     })
-                })
                     
                 }
             </div>

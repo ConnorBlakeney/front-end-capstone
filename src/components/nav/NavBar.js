@@ -12,7 +12,7 @@ export const NavBar = (props) => {
                 <Link className="navbar__link" to="/chat">Live Scoring/Chat</Link>
             </li>
             <li className="navbar__item">
-                <Link className="navbar__link" to="/scores">Previous Scoring/Friends</Link>
+                <Link className="navbar__link" to="/scores">Friends/Previous Scores</Link>
             </li>
             <li className="navbar__item">
                 <Link className="navbar__link" to="/logout">Logout</Link>

@@ -12,7 +12,6 @@ export default ({ friend  }) => {
 
     useEffect(() => {
         setUser(users)
-        // console.log(users.map(user => user.id === friend.id ? user.name: ""))
     }, [users])
 
     return (    

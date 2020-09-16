@@ -19,7 +19,7 @@ export const FriendForm = (props) => {
 
     return (
             <form className="friendForm">
-            <h2 className="friendForm__title">Previous Scores and Friends</h2>
+            <h2 className="friendForm__title">Friends and Previous Scores</h2>
             <div className="friend__cards">
                 <fieldset className="friend card">
                     <h3 className="friends_header">Friends</h3>

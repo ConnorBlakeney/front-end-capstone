@@ -41,8 +41,8 @@ export const FriendsList = props => {
                     filteredFriends.map(friend => {
                        
                         return <Friends key={friend.id} friend={friend} user={user} >
-                            {users.map(user => user.id === friend.id ? user.name: "")}
-                            {console.log(users)}
+                            {/* {users.map(user => user.id === friend.id ? user.name: "")} */}
+                            {/* {console.log(users)} */}
                         </Friends>
                         
                     })

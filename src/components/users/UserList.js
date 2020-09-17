@@ -45,6 +45,10 @@ export const UserList = props => {
 
     const newFriend = () => { 
 
+
+            // filteredFriends filters for user specific friends. userId and friendId 
+            // gets the two in integer form 
+
             const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
             const userId = users.map(user => user.id)
             const friendId = friends.map(friend => friend.friendId)
@@ -57,6 +61,10 @@ export const UserList = props => {
             //         }
             //     }
             // }
+
+            // matching index takes friendId, currently an array, and matches it with
+            // the index of the userId to find which user to add
+            // doesnt work yet because it doesnt check for unique values
 
             function matchIndex (userId, friendId) {
                 for (var i = 0; i < friendId.length; ++i) {
@@ -73,6 +81,8 @@ export const UserList = props => {
             // const addFriend = document.querySelectorAll(".user__name")
             // const matchingFriend = addFriend.find(f => f.friendId === addBtn.id) || {}
 
+
+        // running matchindex down here. will work if i can filter for existing friends
                 addFriend({
                     userId: currentUserId,
                     friendId: friendId[matchIndex(userId, friendId)]

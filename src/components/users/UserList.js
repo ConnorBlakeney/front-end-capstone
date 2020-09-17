@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react"
+import React, { useState, useContext, useEffect, useRef } from "react"
 import { FriendContext } from "../friends/FriendsProvider"
 import { UserContext } from "../users/UserProvider";
 import { UserForm } from "./UserForm";
@@ -11,8 +11,7 @@ export const UserList = props => {
     const { getCurrentUser } = useContext(UserContext)
     const { addFriend } = useContext(FriendContext)
 
-
-    const [filteredFriends, setFiltered] = useState([])
+    // const [filteredFriends, setFiltered] = useState([])
 
     // const useLocalStateUser = () => {
     //     const [loc, setLoc] = useState(localStorage.getItem("current_user"))
@@ -23,9 +22,10 @@ export const UserList = props => {
     // Initialization effect hook -> Go get fight data
     const [friend, setFriend] = useState({})
     const [user, setUser] = useState({})
-    const [currentUser, setCurrentUser] = useState({})
+
 
     const currentUserId = parseInt(localStorage.getItem("current_user"))
+    // console.log(filteredFriends)
 
     useEffect(() => {
         getFriends().then(getUsers).then(getCurrentUser)
@@ -34,50 +34,78 @@ export const UserList = props => {
 
     useEffect(() => {
         setUser(users)
+        console.log(users)
     }, [users])
 
     useEffect(() => {
-        // filteredFriends = friends.filter(f => f.userId === user.id) || {}
         setFriend(friends)
+        console.log(friends)
     }, [friends])
 
 
     const newFriend = () => { 
-                addFriend({
-                    id: friend.id,
-                    userId: currentUserId
-                })
-                 
 
-                    // .then(() => props.history.push("/scores/create"))
+            const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
+            const userId = users.map(user => user.id)
+            const friendId = friends.map(friend => friend.friendId)
+            console.log(filteredFriends, userId, friendId)
+
+            // const matchingIndex = () => {
+            //     for (let i = 0; i < userId.length; i++) {
+            //         for (let j = 0; j < friendId.length; i++) {
+            //             if 
+            //         }
+            //     }
+            // }
+
+            function matchIndex (userId, friendId) {
+                for (var i = 0; i < friendId.length; ++i) {
+                    for (let j = 0; j < userId.length; i++)
+                    if (userId[j] < friendId[i]) {
+                    return j;
+                }
+             }
+            }
+
+            console.log(friendId[matchIndex(userId, friendId)])
+
+            // const addBtn = document.querySelector(".add")
+            // const addFriend = document.querySelectorAll(".user__name")
+            // const matchingFriend = addFriend.find(f => f.friendId === addBtn.id) || {}
+
+                addFriend({
+                    userId: currentUserId,
+                    friendId: friendId[matchIndex(userId, friendId)]
+                })
+                    .then(() => props.history.push("/scores"))
 
     }
 
     return (
-        <>
         
             <div className="users">
                 {
                     users.map(user => {
                         return (
-                            <>
-                            <User key={user.id} friend={friend} user={user} />
+                            
+                        <div key={user.id} >
+                            <User friend={friend} user={user} />
 
-                            <button className="add btn"
+                            <button id={user.id} className="add btn"
                                 onClick={
                                     evt => {
                                         evt.preventDefault()
-                                        newFriend(user)
+                                        newFriend(friend)
                                 }
                                 }
                             >Add</button>
-                        </>
+                        </div>
+                        
                         )
                     })
                     
                 }
             </div>
-        </>
     )
     
 }

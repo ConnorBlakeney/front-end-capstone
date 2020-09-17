@@ -38,6 +38,8 @@ export const ApplicationViews = (props) => {
                
             </FriendProvider>
         </UserProvider>
+  
+
 
             
 

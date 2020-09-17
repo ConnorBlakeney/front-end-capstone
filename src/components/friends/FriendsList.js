@@ -11,7 +11,7 @@ export const FriendsList = props => {
     // const [filteredFriends, setFiltered] = useState([])
     const currentUserId = parseInt(localStorage.getItem("current_user"))
     // const friendId = 
-    const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
+    const filteredFriends = friends.filter(friend => friend.userId === currentUserId) 
 
     // Initialization effect hook -> Go get fight data
     const [friend, setFriend] = useState({})
@@ -35,27 +35,27 @@ export const FriendsList = props => {
     }, [friends])
 
     return (
-        <>
+        
             <div className="friends">
                 { 
                     filteredFriends.map(friend => {
                        
                         return (
-                            <>
-                                <Friends key={friend.id} friend={friend} user={user} />
-                                
+                            <div key={friend.id}>
+                                <Friends friend={friend} user={user} >
+                                </Friends>
                                 <button className="del btn"
                                     onClick={
                                         () => deleteFriend(friend.id).then(() => props.history.push("/scores"))
                                         
                                     }
                                 >Delete</button>
-                            </>
+                            </div>
                         )
                     })
                 }
             </div>
-        </>
+    
     )
 }
 

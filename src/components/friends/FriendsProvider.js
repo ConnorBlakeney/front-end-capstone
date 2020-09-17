@@ -12,8 +12,8 @@ export const FriendProvider = (props) => {
             .then(setFriends)
     }
 
-    const getFriendById = (id) => {
-        return fetch(`http://localhost:8088/friends/${id}?_expand=scorecard&_expand=user`)
+    const getFriendById = (friendId) => {
+        return fetch(`http://localhost:8088/friends/${friendId}?_expand=scorecard&_expand=user`)
             .then(res => res.json())
     }
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import "./User.css"
 
 
@@ -9,7 +9,7 @@ export default ({ friend, user }) => {
     return (    
 
     <section key={user.id} className="user">
-        <div className="user__name">
+        <div id={user.id} className="user__name" >
             {user.id !== currentUserId ? user.name : ""} 
         </div>
     </section>

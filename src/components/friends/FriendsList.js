@@ -42,8 +42,8 @@ export const FriendsList = props => {
                        
                         return (
                             <>
-                                <Friends key={friend.id} friend={friend} user={user} >
-                                </Friends>
+                                <Friends key={friend.id} friend={friend} user={user} />
+                                
                                 <button className="del btn"
                                     onClick={
                                         () => deleteFriend(friend.id).then(() => props.history.push("/scores"))

@@ -23,10 +23,19 @@ export const ApplicationViews = (props) => {
 
         <UserProvider>
             <FriendProvider>
-                <Route path="/scores">
-                        <FriendForm />
-                        <UserForm />
-                </Route>   
+                            <Route path="/scores" render={
+                                (props) => { 
+                                    return (
+                                        <>
+                                        <FriendForm />
+                                        <UserForm history={props.history}/>
+                                       </> 
+                                    )
+                                    }
+                                }
+                            />
+                           
+               
             </FriendProvider>
         </UserProvider>
 

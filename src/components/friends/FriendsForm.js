@@ -23,7 +23,7 @@ export const FriendForm = (props) => {
             <div className="friend__cards">
                 <fieldset className="friend card">
                     <h3 className="friends_header">Friends</h3>
-                    <FriendsList />
+                    <FriendsList/>
                 </fieldset>
             </div>
             

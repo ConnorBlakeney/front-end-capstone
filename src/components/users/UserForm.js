@@ -22,7 +22,7 @@ export const UserForm = (props) => {
             <div className="user__cards">
                 <fieldset className="user card">
                     <h3 className="users_header">Users</h3>
-                    <UserList /> 
+                    <UserList {...props}/> 
                 </fieldset>
             </div>
             

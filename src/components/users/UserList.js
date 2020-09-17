@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react"
 import { FriendContext } from "../friends/FriendsProvider"
 import { UserContext } from "../users/UserProvider";
+import { UserForm } from "./UserForm";
 import User from "../users/User"
 import "./User.css"
 
@@ -38,7 +39,6 @@ export const UserList = props => {
     useEffect(() => {
         // filteredFriends = friends.filter(f => f.userId === user.id) || {}
         setFriend(friends)
-        console.log(friends)
     }, [friends])
 
 
@@ -46,25 +46,24 @@ export const UserList = props => {
                 addFriend({
                     id: friend.id,
                     userId: currentUserId
-                    
                 })
-                    debugger
-                    // .then(() => props.history.push("/scores"))
+                 
+
+                    // .then(() => props.history.push("/scores/create"))
 
     }
 
     return (
         <>
+        
             <div className="users">
                 {
                     users.map(user => {
                         return (
-                        <>
+                            <>
                             <User key={user.id} friend={friend} user={user} />
-                                
-                        
-                        
-                            <button
+
+                            <button className="add btn"
                                 onClick={
                                     evt => {
                                         evt.preventDefault()
@@ -79,6 +78,6 @@ export const UserList = props => {
                 }
             </div>
         </>
-        
     )
+    
 }

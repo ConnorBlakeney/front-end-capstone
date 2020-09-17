@@ -40,11 +40,18 @@ export const FriendsList = props => {
                 { 
                     filteredFriends.map(friend => {
                        
-                        return <Friends key={friend.id} friend={friend} user={user} >
-                            {/* {users.map(user => user.id === friend.id ? user.name: "")} */}
-                            {/* {console.log(users)} */}
-                        </Friends>
-                        
+                        return (
+                            <>
+                                <Friends key={friend.id} friend={friend} user={user} >
+                                </Friends>
+                                <button
+                                    onClick={
+                                        () => deleteFriend(friend.id).then(() => props.history.push("/scores"))
+                                        
+                                    }
+                                >Delete</button>
+                            </>
+                        )
                     })
                 }
             </div>

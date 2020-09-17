@@ -8,6 +8,8 @@ export const UserList = props => {
     const { getFriends, friends } = useContext(FriendContext)
     const { getUsers, users } = useContext(UserContext)
     const { getCurrentUser } = useContext(UserContext)
+    const { addFriend } = useContext(FriendContext)
+
 
     const [filteredFriends, setFiltered] = useState([])
 
@@ -39,18 +41,38 @@ export const UserList = props => {
         console.log(friends)
     }, [friends])
 
+    const newFriend = () => { addFriend({
+                    id: user.id,
+                    userId: currentUserId
+                    
+                })
+                    .then(() => props.history.push("/friends"))
 
+    }
 
     return (
-        
+        <>
             <div className="users">
                 {
                     users.map(user => {
-                        return <User key={user.id} friend={friend} user={user} />
+                        return (
+                        <>
+                            <User key={user.id} friend={friend} user={user} />
+                                
+                        
+                        
+                            <button
+                                // onClick={
+                                //     () => 
+                                // }
+                            >Add</button>
+                        </>
+                        )
                     })
                     
                 }
             </div>
+        </>
         
     )
 }

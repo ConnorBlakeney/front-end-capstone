@@ -41,12 +41,15 @@ export const UserList = props => {
         console.log(friends)
     }, [friends])
 
-    const newFriend = () => { addFriend({
-                    id: user.id,
+
+    const newFriend = () => { 
+                addFriend({
+                    id: friend.id,
                     userId: currentUserId
                     
                 })
-                    .then(() => props.history.push("/friends"))
+                    debugger
+                    // .then(() => props.history.push("/scores"))
 
     }
 
@@ -62,9 +65,12 @@ export const UserList = props => {
                         
                         
                             <button
-                                // onClick={
-                                //     () => 
-                                // }
+                                onClick={
+                                    evt => {
+                                        evt.preventDefault()
+                                        newFriend(user)
+                                }
+                                }
                             >Add</button>
                         </>
                         )

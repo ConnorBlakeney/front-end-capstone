@@ -7,7 +7,6 @@ import "./Friends.css"
 export default ({ friend  }) => {
     const currentUserId = parseInt(localStorage.getItem("current_user"))
     const {getUsers, users } = useContext(UserContext)
-    const {deleteFriend, getFriendById} = useContext(FriendContext)
     const [user, setUser] = useState({})
 
 
@@ -16,19 +15,11 @@ export default ({ friend  }) => {
     }, [users])
 
     return (   
-    <>
-
     <section key={friend.id} className="friend">
         <div className="friend__name">
             {currentUserId === friend.userId ? users.map(user => user.id === friend.id ? user.name: "") : ""}
         </div>
     </section>
-
-
-
-    
-
-    </>
     )
 
 

@@ -52,7 +52,8 @@ export const UserList = props => {
             const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
             const userId = users.map(user => user.id)
             const friendId = friends.map(friend => friend.friendId)
-            console.log(filteredFriends, userId, friendId)
+            const foundId = friendId.find(friend => friend.friendId === user.id)
+            console.log(filteredFriends, userId, friendId, foundId)
 
             // const matchingIndex = () => {
             //     for (let i = 0; i < userId.length; i++) {
@@ -66,16 +67,16 @@ export const UserList = props => {
             // the index of the userId to find which user to add
             // doesnt work yet because it doesnt check for unique values
 
-            function matchIndex (userId, friendId) {
-                for (var i = 0; i < friendId.length; ++i) {
-                    for (let j = 0; j < userId.length; i++)
-                    if (userId[j] < friendId[i]) {
-                    return j;
-                }
-             }
-            }
+            // function matchIndex (userId, friendId) {
+            //     for (var i = 0; i < friendId.length; ++i) {
+            //         for (let j = 0; j < userId.length; i++)
+            //         if (userId.inclues(friendId[i])) {
+            //         return userId;
+            //     }
+            //  }
+            // }
 
-            console.log(friendId[matchIndex(userId, friendId)])
+            // console.log(friendId[matchIndex(userId, friendId)])
 
             // const addBtn = document.querySelector(".add")
             // const addFriend = document.querySelectorAll(".user__name")
@@ -83,10 +84,12 @@ export const UserList = props => {
 
 
         // running matchindex down here. will work if i can filter for existing friends
+                    // maybe try something with includes? find isnt working
                 addFriend({
                     userId: currentUserId,
-                    friendId: friendId[matchIndex(userId, friendId)]
+                    friendId: friendId[0]
                 })
+                    // friendId: friendId[matchIndex(userId, friendId)]
                     .then(() => props.history.push("/scores"))
 
     }

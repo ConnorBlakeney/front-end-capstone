@@ -1,0 +1,20 @@
+.score__card {
+    position: relative;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 120px;
+    height: 200px;
+    box-shadow: 0px 5px 17px -7px rbga(0, 0, 0, 0.75)
+}
+
+.score__card:hover {
+    transform: scale(1.07)
+}
+
+.score__card > h4 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+}

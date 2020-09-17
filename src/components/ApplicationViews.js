@@ -6,7 +6,10 @@ import { HomeDetail } from "./home/HomeDetail";
 import { FriendProvider } from "./friends/FriendsProvider";
 import { FriendForm } from "./friends/FriendsForm";
 import { UserProvider } from "./users/UserProvider";
+import { MessageProvider } from "./messages/MessageProvider";
 import { UserForm } from "./users/UserForm";
+import { Message } from "./messages/Message";
+import { MessageForm } from "./messages/MessageForm";
 
 export const ApplicationViews = (props) => {
     return (
@@ -38,6 +41,20 @@ export const ApplicationViews = (props) => {
                
             </FriendProvider>
         </UserProvider>
+
+        <MessageProvider>
+            <Route path="/chat" render={
+                                (props) => { 
+                                    return (
+                                        <>
+                                        
+                                        <MessageForm history={props.history}/>
+                                       </> 
+                                    )
+                                    }
+                                }
+                            />
+        </MessageProvider>
   
 
 

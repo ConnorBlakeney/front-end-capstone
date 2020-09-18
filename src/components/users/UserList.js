@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect, useRef } from "react"
 import { FriendContext } from "../friends/FriendsProvider"
 import { UserContext } from "../users/UserProvider";
-import { UserForm } from "./UserForm";
 import User from "../users/User"
 import "./User.css"
 
@@ -45,7 +44,6 @@ export const UserList = props => {
     useEffect(() => {
         const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
         setFiltered(filteredFriends)
-        console.log(filteredFriends)
     }, [friends])
 
     // const newFriend = () => { 

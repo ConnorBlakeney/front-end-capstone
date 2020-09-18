@@ -5,8 +5,8 @@ import Friends from "./Friends"
 import "./Friends.css"
 
 export const FriendsList = props => {
-    const { getFriends, friends, deleteFriend } = useContext(FriendContext)
-    const { getUsers, users } = useContext(UserContext)
+    const { getFriends, friends } = useContext(FriendContext)
+    const { getUsers } = useContext(UserContext)
 
     // const [filteredFriends, setFiltered] = useState([])
     const currentUserId = parseInt(localStorage.getItem("current_user"))
@@ -14,7 +14,7 @@ export const FriendsList = props => {
     const filteredFriends = friends.filter(friend => friend.userId === currentUserId) 
 
     // Initialization effect hook -> Go get fight data
-    const [friend, setFriend] = useState({})
+    // const [friend, setFriend] = useState({})
     const [user, setUser] = useState({})
     // const [currentUser, setCurrentUser] = useState({})
 
@@ -25,14 +25,14 @@ export const FriendsList = props => {
     }, [])
 
 
-    useEffect(() => {
-        setUser(users)
-        // console.log(users.map(user => user.id === friend.id ? user.name: ""))
-    }, [users])
+    // useEffect(() => {
+    //     setUser(users)
+    //     // console.log(users.map(user => user.id === friend.id ? user.name: ""))
+    // }, [users])
 
-    useEffect(() => {
-        setFriend(friends)
-    }, [friends])
+    // useEffect(() => {
+    //     setFriend(friends)
+    // }, [friends])
 
     return (
         
@@ -41,15 +41,9 @@ export const FriendsList = props => {
                     filteredFriends.map(friend => {
                        
                         return (
-                            <div key={friend.id}>
-                                <Friends friend={friend} user={user} >
-                                </Friends>
-                                <button className="del btn"
-                                    onClick={
-                                        () => deleteFriend(friend.friendId).then(() => props.history.push("/scores"))
-                                        
-                                    }
-                                >Delete</button>
+                            <div key={friend.friendId}>
+                                <Friends friend={friend} user={user}/>
+                                
                             </div>
                         )
                     })

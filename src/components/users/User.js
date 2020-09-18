@@ -3,7 +3,7 @@ import { FriendContext } from "../friends/FriendsProvider";
 import "./User.css"
 
 
-export default ({  user }) => {
+export default ({ user }) => {
 
     const currentUserId = parseInt(localStorage.getItem("current_user"))
     const { addFriend } = useContext(FriendContext)
@@ -23,7 +23,7 @@ export default ({  user }) => {
                                         evt.preventDefault()
                                         addFriend({
                                              userId: currentUserId,
-                                             friendId: user.id
+                                             userFriendId: user.id
                                         })
                                 }
                                 }

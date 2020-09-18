@@ -6,8 +6,8 @@ import "./User.css"
 
 export const UserForm = (props) => {
     // Use the required context providers for data
-    const { friends, getFriends } = useContext(FriendContext)
-    const { users, getUsers } = useContext(UserContext)
+    // const { friends, getFriends } = useContext(FriendContext)
+    // const { users, getUsers } = useContext(UserContext)
 
     // Component state
     // const [friend, setFriend] = useState({})

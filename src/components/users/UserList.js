@@ -7,11 +7,10 @@ import "./User.css"
 
 export const UserList = props => {
     const { getFriends, friends } = useContext(FriendContext)
-    const { getUsers, users } = useContext(UserContext)
-    const { getCurrentUser } = useContext(UserContext)
-    const { addFriend } = useContext(FriendContext)
+    const { getUsers, users, getCurrentUser } = useContext(UserContext)
+    const { addFriend, getFriendById } = useContext(FriendContext)
 
-    // const [filteredFriends, setFiltered] = useState([])
+    const [filteredFriends, setFiltered] = useState([])
 
     // const useLocalStateUser = () => {
     //     const [loc, setLoc] = useState(localStorage.getItem("current_user"))
@@ -20,8 +19,8 @@ export const UserList = props => {
     // }
 
     // Initialization effect hook -> Go get fight data
-    const [friend, setFriend] = useState({})
-    const [user, setUser] = useState({})
+    // const [friend, setFriend] = useState({})
+    // const [user, setUser] = useState({})
 
 
     const currentUserId = parseInt(localStorage.getItem("current_user"))
@@ -32,26 +31,43 @@ export const UserList = props => {
         // console.log(currentUserId)
     }, [])
 
-    useEffect(() => {
-        setUser(users)
-    }, [users])
+    // useEffect(() => {
+    //     setUser(users)
+    //     console.log(users)
+    // }, [users])
+
+    // useEffect(() => {
+    //     setFriend(friend)
+    //     // console.log(users)
+    // }, [friends])
+
 
     useEffect(() => {
-        setFriend(friends)
+        const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
+        setFiltered(filteredFriends)
+        console.log(filteredFriends)
     }, [friends])
 
+    // const newFriend = () => { 
 
-    const newFriend = () => { 
 
+    //         // filteredFriends filters for user specific friends. userId and friendId 
+    //         // gets the two in integer form 
 
-            // filteredFriends filters for user specific friends. userId and friendId 
-            // gets the two in integer form 
+    //         const userIds = users.map(user => user.id)
+    //         const friendIds = filteredFriends.map(friend => friend.friendId)
+    //         // const mappedFriends = filteredFriends.map(f => f.friendId)
+    //         const foundFriend = friendIds.map(f => {
+    //             console.log(f, "string")
+    //             return userIds.find(u => u === f)
+    //         })
+    //         console.log(userIds, friendIds, foundFriend)
 
-            const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
-            const userId = users.map(user => user.id)
-            // const friendId = friends.map(friend => friend.friendId)
-            const foundId = userId.find(user => user.id === userId)
-            console.log(filteredFriends, userId, foundId)
+            // for (let i = 0; i < filteredFriends.length; i++) {
+            //     if (userId === friendId) {
+            //         console.log(userId)
+            //     }
+            // }
 
             // const matchingIndex = () => {
             //     for (let i = 0; i < userId.length; i++) {
@@ -83,14 +99,15 @@ export const UserList = props => {
 
         // running matchindex down here. will work if i can filter for existing friends
                     // maybe try something with includes? find isnt working
-                addFriend({
-                    userId: currentUserId,
-                    friendId: foundId
-                })
-                    // friendId: friendId[matchIndex(userId, friendId)]
-                    .then(() => props.history.push("/scores"))
+                // addFriend({
+                //     userId: currentUserId,
+                //     friendId: foundFriend[0]
+                // })
+                    // friendId: foundId.friendId
+                    // matchIndex(userId, friendId)
+                    // .then(() => props.history.push("/scores"))
 
-    }
+
 
     return (
         
@@ -100,16 +117,7 @@ export const UserList = props => {
                         return (
                             
                         <div key={user.id} >
-                            <User friend={friend} user={user} />
-
-                            <button id={user.id} className="add btn"
-                                onClick={
-                                    evt => {
-                                        evt.preventDefault()
-                                        newFriend(friend)
-                                }
-                                }
-                            >Add</button>
+                            <User user={user} />                          
                         </div>
                         
                         )

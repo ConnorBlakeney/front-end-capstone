@@ -6,7 +6,7 @@ import "./Message.css"
 export default ({ props, message, user  }) => {
     const currentUserId = parseInt(localStorage.getItem("current_user"))
     const {getUsers, users } = useContext(UserContext)
-    const {getMessages, messages } = useContext(MessageContext)
+    const {getMessages, messages, deleteMessage } = useContext(MessageContext)
     // const [user, setUser] = useState({})
     // const [ currentUser, setCurrentUser] = useState({})
     const currentUser = users.find(u => u.id === message.userId) || {}
@@ -40,7 +40,14 @@ export default ({ props, message, user  }) => {
             <p>{currentUser.name} </p>
             <p>{message.content}</p>
             {/* <p>{message.content}</p> */}
-            <p>{message.timestamp}</p>
+            <p>{message.timestamp.toLocaleString()}</p>
+            {currentUserId === message.userId ? 
+            <button id={message.id} className="del btn"
+                    onClick={
+                        () => {
+                                deleteMessage(message.id)                                   
+            }}>Delete</button>
+            : ""}
         </section>
     )
 

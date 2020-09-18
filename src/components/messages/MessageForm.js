@@ -36,7 +36,7 @@ export const MessageForm = ({  timestamp, props  }) => {
         addMessage({
                 userId: currentUserId,
                 content: input,
-                timestamp: Date.now(),
+                timestamp: new Date()
             })
         setInput("")
         e.preventDefault()

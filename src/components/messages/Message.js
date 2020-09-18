@@ -9,8 +9,8 @@ export default ({ props, message, user  }) => {
     const {getMessages, messages } = useContext(MessageContext)
     // const [user, setUser] = useState({})
     // const [ currentUser, setCurrentUser] = useState({})
-    const currentUser = users.find(u => u.id === currentUserId) || {}
-    console.log(currentUser)
+    const currentUser = users.find(u => u.id === message.userId) || {}
+    // console.log(currentUser)
 
     // const [message, setMessage] = useState({})
 

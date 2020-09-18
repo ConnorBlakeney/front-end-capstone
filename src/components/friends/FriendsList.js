@@ -41,7 +41,7 @@ export const FriendsList = props => {
                     filteredFriends.map(friend => {
                        
                         return (
-                            <div key={friend.friendId}>
+                            <div key={friend.userFriendId}>
                                 <Friends friend={friend} user={user}/>
                                 
                             </div>

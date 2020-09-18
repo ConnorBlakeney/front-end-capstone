@@ -49,9 +49,9 @@ export const UserList = props => {
 
             const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
             const userId = users.map(user => user.id)
-            const friendId = friends.map(friend => friend.friendId)
-            const foundId = friendId.find(friend => friend.friendId === user.id)
-            console.log(filteredFriends, userId, friendId, foundId)
+            // const friendId = friends.map(friend => friend.friendId)
+            const foundId = userId.find(user => user.id === userId)
+            console.log(filteredFriends, userId, foundId)
 
             // const matchingIndex = () => {
             //     for (let i = 0; i < userId.length; i++) {
@@ -85,7 +85,7 @@ export const UserList = props => {
                     // maybe try something with includes? find isnt working
                 addFriend({
                     userId: currentUserId,
-                    friendId: friendId[0]
+                    friendId: foundId
                 })
                     // friendId: friendId[matchIndex(userId, friendId)]
                     .then(() => props.history.push("/scores"))

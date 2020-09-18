@@ -10,12 +10,12 @@ export const UserForm = (props) => {
     const { users, getUsers } = useContext(UserContext)
 
     // Component state
-    const [friend, setFriend] = useState({})
+    // const [friend, setFriend] = useState({})
 
     
-    useEffect(() => {
-        getFriends().then(getUsers)
-    }, [])
+    // useEffect(() => {
+    //     getFriends().then(getUsers)
+    // }, [])
 
     return (
             <form className="userForm">

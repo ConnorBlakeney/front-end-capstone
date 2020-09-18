@@ -42,19 +42,20 @@ export const ApplicationViews = (props) => {
             </FriendProvider>
         </UserProvider>
 
-        <MessageProvider>
-            <Route path="/chat" render={
+        <UserProvider>
+            <MessageProvider>
+                <Route path="/chat" render={
                                 (props) => { 
                                     return (
-                                        <>
-                                        
+                                    <>
                                         <MessageForm history={props.history}/>
-                                       </> 
+                                    </> 
                                     )
                                     }
                                 }
                             />
-        </MessageProvider>
+            </MessageProvider>
+        </UserProvider>
   
 
 

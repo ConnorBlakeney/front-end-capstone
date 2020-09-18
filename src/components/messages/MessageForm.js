@@ -1,8 +1,32 @@
 import React, { useContext, useEffect, useState, useRef} from "react"
 import { MessageContext } from "./MessageProvider";
+import { MessageList } from "./MessageList";
+import { UserContext } from "../users/UserProvider"
+import "./Message.css"
 
-export const MessageForm = (props) => {
+
+
+export const MessageForm = ({  timestamp, props  }) => {
+    const { getUsers, users } = useContext(UserContext)
+    const { getMessages, messages } = useContext(MessageContext)
+
+    // const [filteredFights, setFiltered] = useState([])
+    const [user, setUser] = useState({})
+    const [message, setMessage] = useState({})
     const { addMessage } = useContext(MessageContext)
+
+    // Initialization effect hook -> Go get fight data
+    useEffect(() => {
+        getMessages().then(getUsers)
+    }, [])
+    
+    useEffect(() => {
+        setUser(users)
+    }, [users])
+    
+    useEffect(() => {
+        setMessage(messages)
+    }, [messages])
 
 
     const [input, setInput] = useState('')
@@ -18,6 +42,9 @@ export const MessageForm = (props) => {
                     <input value={input} onChange={(e) => setInput(e.target.value)} className="message__input" placeholder={"What do you think?"}></input>
                     <button onClick={handleSubmit}>Submit</button>
                 </form>
+            </div>
+            <div className="message__bottom">
+               <MessageList {...props}/>
             </div>
 
 

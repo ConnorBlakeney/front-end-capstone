@@ -34,12 +34,10 @@ export const UserList = props => {
 
     useEffect(() => {
         setUser(users)
-        console.log(users)
     }, [users])
 
     useEffect(() => {
         setFriend(friends)
-        console.log(friends)
     }, [friends])
 
 

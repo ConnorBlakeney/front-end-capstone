@@ -29,6 +29,7 @@ export const MessageList = ({ history, props }) => {
     
     useEffect(() => {
         setMessage(messages)
+        console.log(message)
     }, [messages])
     
 

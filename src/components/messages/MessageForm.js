@@ -54,6 +54,7 @@ export const MessageForm = ({  timestamp, props  }) => {
             </div>
             <div className="message__bottom">
                <MessageList {...props}/>
+                
             </div>
 
 

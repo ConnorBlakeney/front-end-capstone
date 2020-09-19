@@ -8,8 +8,10 @@ import { FriendForm } from "./friends/FriendsForm";
 import { UserProvider } from "./users/UserProvider";
 import { MessageProvider } from "./messages/MessageProvider";
 import { UserForm } from "./users/UserForm";
-import { Message } from "./messages/Message";
 import { MessageForm } from "./messages/MessageForm";
+import { ScoresList } from "./scores/ScoresList";
+import { ScoreProvider } from "./scores/ScoresProvider";
+import ScoresForm from "./scores/ScoresForm";
 
 export const ApplicationViews = (props) => {
     return (
@@ -42,22 +44,28 @@ export const ApplicationViews = (props) => {
             </FriendProvider>
         </UserProvider>
 
+
+                
         <UserProvider>
             <MessageProvider>
-                <Route path="/chat" render={
+                <ScoreProvider>
+                    <FightProvider>
+                        <Route path="/chat" render={
                                 (props) => { 
                                     return (
                                     <>
+                                        <ScoresForm />
                                         <MessageForm history={props.history}/>
                                     </> 
                                     )
                                     }
                                 }
                             />
+                    </FightProvider>
+                </ScoreProvider>
             </MessageProvider>
         </UserProvider>
   
-
 
             
 
@@ -72,3 +80,5 @@ export const ApplicationViews = (props) => {
         </>
     )
 }
+
+

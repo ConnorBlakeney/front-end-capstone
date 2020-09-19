@@ -40,8 +40,9 @@ export const MessageList = ({ history, props }) => {
             <div className="fights">
                 {
                     messages.map(message => {
-                        return <Message key={message.id} message={message} user={user}/>
+                        return <Message key={message.id} message={message} user={user} {...props}/>
                     })
+                    
                 }
             </div>
         

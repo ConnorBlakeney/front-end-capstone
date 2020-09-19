@@ -38,6 +38,7 @@ export const MessageForm = ({  timestamp, props  }) => {
                 content: input,
                 timestamp: new Date()
             })
+                console.log(input)
         setInput("")
         e.preventDefault()
     }
@@ -48,18 +49,15 @@ export const MessageForm = ({  timestamp, props  }) => {
                     <input value={input} onChange={(e) => setInput(e.target.value)} className="message__input" placeholder={"What do you think?"}></input>
                     <button id={currentUserId} onClick={
                             handleSubmit
-                        
+                            
                             } >Submit</button>
                 </form>
             </div>
             <div className="message__bottom">
-               <MessageList {...props}/>
+               <MessageList {...props} />
                 
             </div>
-
-
-
-
+            
         </div>
     )
 }

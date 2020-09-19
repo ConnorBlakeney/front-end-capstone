@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState, useRef} from "react"
 import { MessageContext } from "./MessageProvider";
 import { UserContext } from "../users/UserProvider";
+import ContentEditable from 'react-contenteditable'
 import "./Message.css"
 
-export default ({ props, message, user  }) => {
+export default ({ message, user  }) => {
     const currentUserId = parseInt(localStorage.getItem("current_user"))
     const {getUsers, users } = useContext(UserContext)
     const {getMessages, messages, deleteMessage, editMessage } = useContext(MessageContext)
@@ -11,7 +12,7 @@ export default ({ props, message, user  }) => {
     // const [ currentUser, setCurrentUser] = useState({})
     // const editMode = props.match.params.hasOwnProperty("messageId")
     const currentUser = users.find(u => u.id === message.userId) || {}
-
+    // const message = useRef(null)
     // console.log(currentUser)
 
     // const [message, setMessage] = useState({})
@@ -35,13 +36,22 @@ export default ({ props, message, user  }) => {
     //     setMessage(messages)
     // }, [messages])
 
+    // function constructor() {
+    // super()
+    // this.contentEditable = React.createRef();
+    // this.state = {html: "<b>Hello <i>World</i></b>"};
+    // };
+
     return (   
         <section key={message.id} className="message">
             {/* <p>{currentUserId === message.userId ? users.map(u=> user.id === message.userId ? user.name : "") : ""}</p> */}
             {/* <p>{message.userId === currentUserId ? users.find(u => u.id === currentUserId ? u.name: "") : ""} </p> */}
             <p>{currentUser.name} </p>
-            <p>{message.content}</p>
             {/* <p>{message.content}</p> */}
+
+            {currentUserId === message.userId ?
+            <ContentEditable html={message.content}/> : message.content}
+
             <p>{message.timestamp.toLocaleString()}</p>
             {currentUserId === message.userId ? 
             <button id={message.id} className="del btn"
@@ -50,7 +60,7 @@ export default ({ props, message, user  }) => {
                                 deleteMessage(message.id)                                   
             }}>Delete</button>
             : ""}
-            {currentUserId === message.userId ? 
+            {/* {currentUserId === message.userId ? 
             <button id={message.id} className="del btn"
                     onClick={
                         () => {
@@ -62,7 +72,7 @@ export default ({ props, message, user  }) => {
                                      
                 })                                   
             }}>Edit</button>
-            : ""}
+            : ""} */}
         </section>
     )
 

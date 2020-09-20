@@ -3,6 +3,7 @@ import { UserContext } from "../users/UserProvider";
 // import { FriendContext } from "./FriendsProvider";
 import { ScoresDropDownFights, ScoresDropDownFriends } from "./ScoresDropDown";
 import "./Scores.css"
+import { ScoresList } from "./ScoresList";
 
 export default ({ friend, image, title  }) => {
     const currentUserId = parseInt(localStorage.getItem("current_user"))
@@ -18,7 +19,8 @@ export default ({ friend, image, title  }) => {
         <section className="scores">
             <h4> {title} </h4>
             <ScoresDropDownFriends />
-            <ScoresDropDownFights /> 
+            {/* <ScoresDropDownFights />  */}
+            <ScoresList />
         </section>
     )
 

@@ -3,6 +3,7 @@ import { UserContext } from "../users/UserProvider"
 import { ScoreContext } from "./ScoresProvider";
 import { FightContext } from "../fights/FightProvider";
 import Scores from "./Scores";
+import Dropdown from 'react-dropdown';
 import "./Scores.css"
 
 export const ScoresList = ({ history, props }) => {
@@ -27,6 +28,7 @@ export const ScoresList = ({ history, props }) => {
 
     useEffect(() => {
         setFight(fights)
+        console.log(fights)
     }, [fights])
 
     useEffect(() => {
@@ -38,15 +40,25 @@ export const ScoresList = ({ history, props }) => {
 
 
     return (
-        
-            <div className="fights">
+
+    <>    
+        <div className="fights">
+            
                 {
                     fights.map(fight => {
-                        return <Scores key={score.id} score={score} user={user} fight={fight} {...props}/>
+                        return (
+                            <>
+                                
+                                    <Scores key={score.id} score={score} user={user} fight={fight} {...props}/>
+                                
+                            </>
+                        )
                     })
                     
                 }
-            </div>
+            
+        </div>
+    </>
         
     )
 }

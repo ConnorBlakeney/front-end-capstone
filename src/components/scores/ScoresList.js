@@ -49,7 +49,7 @@ export const ScoresList = ({ history, props }) => {
                     fights.map(fight => {
                         return (
                             
-                            <option key={fight.id}> { fight.R_fighter } vs { fight.B_fighter }
+                            <option key={fight.id} id={fight.id}> { fight.R_fighter } vs { fight.B_fighter }
                                     {/* <Scores key={score.id} score={score} user={user} fight={fight} {...props}/>
                                 {fight.id} */}
                             </option>

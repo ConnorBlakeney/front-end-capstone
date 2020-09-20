@@ -41,24 +41,27 @@ export const ScoresList = ({ history, props }) => {
 
     return (
 
-    <>    
-        <div className="fights">
-            
+        
+    <div key={score.id} className="fights">
+        <label>
+            <select>
                 {
                     fights.map(fight => {
                         return (
-                            <>
-                                
-                                    <Scores key={score.id} score={score} user={user} fight={fight} {...props}/>
-                                
-                            </>
+                            
+                            <option key={score.id}> { fight.R_fighter } vs { fight.B_fighter }
+                                    {/* <Scores key={score.id} score={score} user={user} fight={fight} {...props}/>
+                                {fight.id} */}
+                            </option>
+                            
                         )
                     })
                     
                 }
-            
-        </div>
-    </>
+            </select>
+        </label>
+    </div>
+    
         
     )
 }

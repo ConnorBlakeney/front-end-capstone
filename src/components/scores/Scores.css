@@ -22,7 +22,8 @@
 .round__form {
     display: flex;
     flex-direction: column;
-    width: 7rem;
+    width: 8rem;
+    margin: 1rem;
 }
 
 .blue > input {
@@ -36,5 +37,10 @@
 .card__form {
     display: flex;
     justify-content: center;
+    margin: 1rem;
+}
+
+.red, .blue {
+    margin: 2px;
 }
 

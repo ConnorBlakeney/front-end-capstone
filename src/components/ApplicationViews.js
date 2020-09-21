@@ -28,6 +28,7 @@ export const ApplicationViews = (props) => {
 
         <UserProvider>
             <FriendProvider>
+                <ScoreProvider>
                             <Route path="/scores" render={
                                 (props) => { 
                                     return (
@@ -40,7 +41,7 @@ export const ApplicationViews = (props) => {
                                 }
                             />
                            
-               
+                </ScoreProvider>
             </FriendProvider>
         </UserProvider>
 

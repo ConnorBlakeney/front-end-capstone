@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react"
+import React, { useState, useContext, useEffect, useRef } from "react"
 import { UserContext } from "../users/UserProvider"
 import { ScoreContext } from "./ScoresProvider";
 import { FightContext } from "../fights/FightProvider";
@@ -19,8 +19,13 @@ export const ScoresList = ({ history, props }) => {
     const [fight, setFight] = useState({})
     const [friend, setFriend] = useState({})
 
+    const fightId = useRef(0)
+    // const fightId = parseInt(fight.current.value)
+    // console.log(fight)
+
     const currentUserId = parseInt(localStorage.getItem("current_user"))
     const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
+    // const foundFight = fights.find(f => f.id === document.getElementsByClassName('fight__option').value,) || {}
     // const foundFriend = filteredFriends.find(f => user.id === f.userFriendId)
 
     // Initialization effect hook -> Go get fight data
@@ -28,6 +33,8 @@ export const ScoresList = ({ history, props }) => {
         getScore().then(getUsers).then(getFights).then(getFriends)
     }, [])
     
+    console.log(fights.map(f => f.id))
+
     const handleSubmit = (e) => {
         addScore ({
                     userId: currentUserId,
@@ -41,17 +48,21 @@ export const ScoresList = ({ history, props }) => {
                     roundFourBlue: parseInt(document.getElementById('roundFourBlue').value),
                     roundFiveRed: parseInt(document.getElementById('roundFiveRed').value),
                     roundFiveBlue: parseInt(document.getElementById('roundFiveBlue').value),
-                    scoreFightId: fight.id,
+                    // scoreFightId: fightId 
                 })
+        e.preventDefault()
+    }
+
+    const prevent = e => {
         e.preventDefault()
     }
     // useEffect(() => {
     //     setUser(users)
     // }, [users])
-
     // useEffect(() => {
-    //     setFight(fights)
-    // }, [fights])
+    //     setFight(fight)
+    //     console.log(fight)
+    // }, [fight])
 
     // useEffect(() => {
     //     setScore(scores)
@@ -66,23 +77,22 @@ export const ScoresList = ({ history, props }) => {
     <div className="scores" key={score.id}>
 
         <div className="filteredFriends">
-            <label>
-                <select>
+            
+                <select onChange={console.log(document.querySelector('#select option:checked'))} id="select">
                     {
                         fights.map(fight => {
                             return (
+                                <option className="fight__option" key={fight.id} id={fight.id} {...props}> { fight.R_fighter } vs { fight.B_fighter }
                                 
-                                <option key={fight.id} id={fight.id}> { fight.R_fighter } vs { fight.B_fighter }
                                         {/* <Scores key={score.id} score={score} user={user} fight={fight} {...props}/>
                                     {fight.id} */}
-                                </option>
-                                
+                                </option>                                
                             )
                         })
-                        
                     }
+                       
                 </select>
-            </label>
+            
 
         <section className="card__form">    
                 <form className="round__form red">
@@ -98,7 +108,7 @@ export const ScoresList = ({ history, props }) => {
                     <input id="roundThreeBlue" className="round__three blue" placeholder="Round 3 Blue" type="number"></input>
                     <input id="roundFourBlue"className="round__four blue" placeholder="Round 4 Blue" type="number"></input>
                     <input id="roundFiveBlue" className="round__five blue" placeholder="Round 5 Blue" type="number"></input>
-                    <button id={fight.id} onClick={
+                    <button onClick={
                         handleSubmit
                     }>Save Scores</button>
                 </form>
@@ -108,3 +118,4 @@ export const ScoresList = ({ history, props }) => {
     </div>
     )
 }
+

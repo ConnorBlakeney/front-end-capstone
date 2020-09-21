@@ -27,7 +27,7 @@ export default ({ user }) => {
                                         })
                                 }
                                 }
-                    >Add</button>
+            >Add</button>
              : ""}
         </div>
     </section>

@@ -45,12 +45,13 @@ export const ApplicationViews = (props) => {
         </UserProvider>
 
 
-                
-        <UserProvider>
-            <MessageProvider>
-                <ScoreProvider>
-                    <FightProvider>
-                        <Route path="/chat" render={
+
+        <FriendProvider>
+            <UserProvider>
+                <MessageProvider>
+                    <ScoreProvider>
+                        <FightProvider>
+                            <Route path="/chat" render={
                                 (props) => { 
                                     return (
                                     <>
@@ -61,10 +62,11 @@ export const ApplicationViews = (props) => {
                                     }
                                 }
                             />
-                    </FightProvider>
-                </ScoreProvider>
-            </MessageProvider>
-        </UserProvider>
+                        </FightProvider>
+                    </ScoreProvider>
+                </MessageProvider>
+            </UserProvider>
+        </FriendProvider>
   
 
             

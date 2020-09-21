@@ -6,7 +6,7 @@ import "./Friends.css"
 
 export const FriendsList = props => {
     const { getFriends, friends } = useContext(FriendContext)
-    const { getUsers } = useContext(UserContext)
+    const { getUsers, users } = useContext(UserContext)
 
     // const [filteredFriends, setFiltered] = useState([])
     const currentUserId = parseInt(localStorage.getItem("current_user"))
@@ -36,6 +36,7 @@ export const FriendsList = props => {
 
     return (
         
+        <div>
             <div className="friends">
                 { 
                     filteredFriends.map(friend => {
@@ -50,6 +51,8 @@ export const FriendsList = props => {
                 }
             </div>
     
+         
+        </div>
     )
 }
 

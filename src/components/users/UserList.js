@@ -7,7 +7,7 @@ import "./User.css"
 export const UserList = props => {
     const { getFriends, friends } = useContext(FriendContext)
     const { getUsers, users, getCurrentUser } = useContext(UserContext)
-    const { addFriend, getFriendById } = useContext(FriendContext)
+    // const { addFriend, getFriendById } = useContext(FriendContext)
 
     const [filteredFriends, setFiltered] = useState([])
 

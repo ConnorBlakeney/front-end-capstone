@@ -18,7 +18,7 @@ export default ({ friend, image, title  }) => {
     return (  
         <section className="scores">
             <h4> {title} </h4>
-            <ScoresDropDownFriends />
+            {/* <ScoresDropDownFriends /> */}
             {/* <ScoresDropDownFights />  */}
             <ScoresList />
         </section>

@@ -46,7 +46,7 @@ export const ScoresList = ({ history, props }) => {
 
     return (
 
-    <div key={score.id}>
+    <div class="round__form total" key={score.id}>
 
         <div className="filteredFriends">
             <label>
@@ -68,11 +68,13 @@ export const ScoresList = ({ history, props }) => {
             </label>
         </div>
 
-        <form>
+        {/* <form className="round__form blue">
             <input className="round__one blue" type="number"></input>
-            ---
-            <input className="round__one red" type="number"></input>
-        </form>
+            <input className="round__two blue" type="number"></input>
+            <input className="round__three blue" type="number"></input>
+            <input className="round__four blue" type="number"></input>
+            <input className="round__five blue" type="number"></input>
+        </form> */}
        
     </div>
     )

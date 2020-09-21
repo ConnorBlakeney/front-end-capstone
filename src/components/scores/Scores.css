@@ -18,3 +18,21 @@
     left: 20px;
     color: white;
 }
+
+.round__form {
+    display: flex;
+    flex-direction: column;
+    width: 7rem;
+}
+
+.blue > input {
+    margin: 5px;
+}
+
+.scores {
+    border: 1px solid black;
+}
+
+.card__form {
+    display: flex;
+}

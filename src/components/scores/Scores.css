@@ -32,6 +32,8 @@
 
 .scores {
     border: 1px solid black;
+    height: 35vh;
+    width: 115%;
 }
 
 .card__form {
@@ -44,8 +46,8 @@
     margin: 2px;
 }
 
-.score {
+.score__card {
     display: flex;
-    justify-content: center;
     margin: 3rem;
 }
+

@@ -3,9 +3,9 @@ import { UserContext } from "../users/UserProvider"
 import { ScoreContext } from "./ScoresProvider";
 import { FightContext } from "../fights/FightProvider";
 import { FriendContext } from "../friends/FriendsProvider";
-import Scores from "./Scores";
 import { Form } from 'reactstrap';
 import "./Scores.css"
+import ScoresUser from "./ScoresUser";
 
 export const OldScoresList = ({ history, props }) => {
     const { getUsers, users } = useContext(UserContext)
@@ -78,26 +78,13 @@ export const OldScoresList = ({ history, props }) => {
 
         <div className="filteredFriends">
             
-                <select onChange={console.log(document.querySelector('#select option:checked'))} id="select">
-                    {
-                        fights.map(fight => {
-                            return (
-                                <option className="fight__option" key={fight.id} id={fight.id} {...props}> { fight.R_fighter } vs { fight.B_fighter }
-                                
-                                        {/* <Scores key={score.id} score={score} user={user} fight={fight} {...props}/>
-                                    {fight.id} */}
-                                </option>                                
-                            )
-                        })
-                    }
-                       
-                </select>
+                
             
 
         {
             scores.map(score => {
                             return (
-                                <Scores className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
+                                <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
                                 
                                        
                                                                 

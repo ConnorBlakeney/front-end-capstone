@@ -3,7 +3,7 @@ import { FriendContext } from "./FriendsProvider";
 import { UserContext } from "../users/UserProvider";
 import { ScoreContext } from "../scores/ScoresProvider";
 import { FriendsList } from "./FriendsList";
-import Scores from "../scores/Scores";
+import Scores from "../scores/ScoresUser";
 import "./Friends.css"
 
 export const FriendForm = (props) => {

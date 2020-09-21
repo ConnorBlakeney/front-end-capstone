@@ -3,7 +3,7 @@ import { UserContext } from "../users/UserProvider"
 import { ScoreContext } from "./ScoresProvider";
 import { FightContext } from "../fights/FightProvider";
 import { FriendContext } from "../friends/FriendsProvider";
-import Scores from "./Scores";
+import Scores from "./ScoresUser";
 import { Form } from 'reactstrap';
 import "./Scores.css"
 
@@ -19,12 +19,14 @@ export const ScoresList = ({ history, props }) => {
     const [fight, setFight] = useState({})
     const [friend, setFriend] = useState({})
 
+    const scoreFightId = useRef(null)
+
     const fightId = useRef(0)
     // const fightId = parseInt(fight.current.value)
     // console.log(fight)
 
     const currentUserId = parseInt(localStorage.getItem("current_user"))
-    const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
+    // const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
     // const foundFight = fights.find(f => f.id === document.getElementsByClassName('fight__option').value,) || {}
     // const foundFriend = filteredFriends.find(f => user.id === f.userFriendId)
 
@@ -33,9 +35,11 @@ export const ScoresList = ({ history, props }) => {
         getScore().then(getUsers).then(getFights).then(getFriends)
     }, [])
     
-    console.log(fights.map(f => f.id))
+    // console.log(fights.map(f => f.id))
 
     const handleSubmit = (e) => {
+
+        const fightSelect = parseInt(fightId.current.value)
         addScore ({
                     userId: currentUserId,
                     roundOneRed: parseInt(document.getElementById('roundOneRed').value),
@@ -48,7 +52,7 @@ export const ScoresList = ({ history, props }) => {
                     roundFourBlue: parseInt(document.getElementById('roundFourBlue').value),
                     roundFiveRed: parseInt(document.getElementById('roundFiveRed').value),
                     roundFiveBlue: parseInt(document.getElementById('roundFiveBlue').value),
-                    // scoreFightId: fightId 
+                    scoreFightId: fightSelect 
                 })
         e.preventDefault()
     }
@@ -78,20 +82,16 @@ export const ScoresList = ({ history, props }) => {
 
         <div className="filteredFriends">
             
-                <select onChange={console.log(document.querySelector('#select option:checked'))} id="select">
-                    {
-                        fights.map(fight => {
-                            return (
-                                <option className="fight__option" key={fight.id} id={fight.id} {...props}> { fight.R_fighter } vs { fight.B_fighter }
-                                
-                                        {/* <Scores key={score.id} score={score} user={user} fight={fight} {...props}/>
-                                    {fight.id} */}
-                                </option>                                
-                            )
-                        })
-                    }
-                       
-                </select>
+                
+
+                <select defaultValue="" name="fight" ref={fightId} id="" className="form__control">
+                            <option value="0">Select a fight</option>
+                            {fights.map((e) => (
+                                <option key={e.id} value={e.id}>
+                                    { e.R_fighter } vs { e.B_fighter }
+                                </option>
+                            ))}
+                        </select>
             
 
         <section className="card__form">    
@@ -119,3 +119,19 @@ export const ScoresList = ({ history, props }) => {
     )
 }
 
+
+
+// <select onChange={event => console.log(event)} id="select">
+//                     {
+//                         fights.map(fight => {
+//                             return (
+//                                 <option className="fight__option" key={fight.id} value={fight.id} id={fight.id} {...props}> { fight.R_fighter } vs { fight.B_fighter }
+                                
+//                                         {/* <Scores key={score.id} score={score} user={user} fight={fight} {...props}/>
+//                                     {fight.id} */}
+//                                 </option>                                
+//                             )
+//                         })
+//                     }
+                       
+//                 </select>

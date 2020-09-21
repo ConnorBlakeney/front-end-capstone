@@ -44,6 +44,21 @@ export default ({ friend, image, title  }) => {
                 </select>
             </label>
 
+            <select onChange={console.log(document.querySelector('#select option:checked'))} id="select">
+                    {
+                        fights.map(fight => {
+                            return (
+                                <option className="fight__option" key={fight.id} id={fight.id}> { fight.R_fighter } vs { fight.B_fighter }
+                                
+                                        {/* <Scores key={score.id} score={score} user={user} fight={fight} {...props}/>
+                                    {fight.id} */}
+                                </option>                                
+                            )
+                        })
+                    }
+                       
+                </select>
+
             <OldScoresList />
             
         </section>

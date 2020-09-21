@@ -26,24 +26,7 @@ export const FriendForm = (props) => {
 
     return (
             <form className="friendForm">
-            <h2 className="friendForm__title">Friends and Previous Scores</h2>
-            <label>
-                <select className="filtered__friends">
-                    {
-                        filteredFriends.map(friend => {
-                            return (
-                                
-                                <option key={friend.id} id={friend.id}> { users.map(user => user.id === friend.userFriendId ? user.name : "") }
-                                        {/* <Scores key={score.id} score={score} user={user} fight={fight} {...props}/>
-                                    {fight.id} */}
-                                </option>
-                                
-                            )
-                        })
-                        
-                    }
-                </select>
-            </label>
+            
 
             
             <div className="friend__cards">

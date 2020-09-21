@@ -12,6 +12,7 @@ import { MessageForm } from "./messages/MessageForm";
 import { ScoresList } from "./scores/ScoresList";
 import { ScoreProvider } from "./scores/ScoresProvider";
 import ScoresForm from "./scores/ScoresForm";
+import OldScoresForm from "./scores/OldScoresForm";
 
 export const ApplicationViews = (props) => {
     return (
@@ -29,10 +30,12 @@ export const ApplicationViews = (props) => {
         <UserProvider>
             <FriendProvider>
                 <ScoreProvider>
+                    <FightProvider>
                             <Route path="/scores" render={
                                 (props) => { 
                                     return (
                                         <>
+                                        <OldScoresForm />
                                         <FriendForm />
                                         <UserForm history={props.history}/>
                                        </> 
@@ -40,7 +43,7 @@ export const ApplicationViews = (props) => {
                                     }
                                 }
                             />
-                           
+                    </FightProvider>     
                 </ScoreProvider>
             </FriendProvider>
         </UserProvider>

@@ -25,6 +25,9 @@ export const OldScoresList = ({ history, props }) => {
 
     const currentUserId = parseInt(localStorage.getItem("current_user"))
     const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
+    const fightSelect = parseInt(fightId.current.value)
+    // console.log(fightSelect)
+
     // const foundFight = fights.find(f => f.id === document.getElementsByClassName('fight__option').value,) || {}
     // const foundFriend = filteredFriends.find(f => user.id === f.userFriendId)
 
@@ -33,7 +36,6 @@ export const OldScoresList = ({ history, props }) => {
         getScore().then(getUsers).then(getFights).then(getFriends)
     }, [])
     
-    console.log(fights.map(f => f.id))
 
     const handleSubmit = (e) => {
         // addScore ({
@@ -53,9 +55,7 @@ export const OldScoresList = ({ history, props }) => {
         e.preventDefault()
     }
 
-    const prevent = e => {
-        e.preventDefault()
-    }
+    
     // useEffect(() => {
     //     setUser(users)
     // }, [users])
@@ -76,24 +76,32 @@ export const OldScoresList = ({ history, props }) => {
 
     <div className="scores" key={score.id}>
 
-        <div className="filteredFriends">
+        <div className="filteredFights">
             
-                
-            
-
-        {
-            scores.map(score => {
+                {
+                    scores.map(score => {
                             return (
-                                <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
+                            <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
                                 
                                        
                                                                 
                             )
-                        })
-        }
+                })
+            }
+            
+
         </div>
        
     </div>
     )
 }
+         {/* {currentUserId === score.userId && score.scoreFightId === fightSelect ? scores.map(score => {
+                            return (
+                            <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
+                                
+                                       
+                                                                
+                            )
+                        }) : ""}   
 
+        {console.log(currentUserId, score.userId, score.scoreFightId, fightSelect)} */}

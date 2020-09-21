@@ -13,12 +13,14 @@ export default ({ fight, user, score }) => (
                     <p className="round__five red">Round 5: { score.roundFiveRed } </p>        
             </div>
             <div className="score__fight blue">
-                    <p className="round__one blue">{ score.roundOneBlue }</p>         
-                    <p className="round__one blue">{ score.roundTwoBlue }</p>        
-                    <p className="round__one blue">{ score.roundThreeBlue }</p>         
-                    <p className="round__one blue">{ score.roundFourBlue }</p>         
-                    <p className="round__one blue">{ score.roundFiveBlue }</p>         
+                    <p className="round__one blue"> - { score.roundOneBlue }</p>         
+                    <p className="round__one blue"> - { score.roundTwoBlue }</p>        
+                    <p className="round__one blue"> - { score.roundThreeBlue }</p>         
+                    <p className="round__one blue"> - { score.roundFourBlue }</p>         
+                    <p className="round__one blue"> - { score.roundFiveBlue }</p>         
             </div>
         </div>
     </section>
 )
+
+// if currentuserid === scores.userid && scores.scorefightid === fightselect then render 

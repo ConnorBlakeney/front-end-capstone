@@ -12,7 +12,7 @@ export default ({ friend }) => {
     <section key={friend.id} className="friend">
         <div className="friend__name">
             {currentUserId === friend.userId ? users.map(user => user.id === friend.userFriendId ? user.name : "") : ""}
-        <button id={friend.id} className="del btn"
+        <button className="del btn"
                     onClick={
                         () => {
                                 deleteFriend(friend.id)                                   

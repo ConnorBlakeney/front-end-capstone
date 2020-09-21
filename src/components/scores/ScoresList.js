@@ -19,7 +19,7 @@ export const ScoresList = ({ history, props }) => {
     const [fight, setFight] = useState({})
     const [friend, setFriend] = useState({})
 
-    const scoreFightId = useRef(null)
+    // const scoreFightId = useRef(null)
 
     const fightId = useRef(0)
     // const fightId = parseInt(fight.current.value)
@@ -54,12 +54,10 @@ export const ScoresList = ({ history, props }) => {
                     roundFiveBlue: parseInt(document.getElementById('roundFiveBlue').value),
                     scoreFightId: fightSelect 
                 })
+            console.log(fightSelect)
         e.preventDefault()
     }
 
-    const prevent = e => {
-        e.preventDefault()
-    }
     // useEffect(() => {
     //     setUser(users)
     // }, [users])

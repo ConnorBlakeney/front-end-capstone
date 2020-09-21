@@ -5,6 +5,7 @@ import { ScoresDropDownFights, ScoresDropDownFriends } from "./ScoresDropDown";
 import "./Scores.css"
 import { ScoresList } from "./ScoresList";
 
+
 export default ({ friend, image, title  }) => {
     const currentUserId = parseInt(localStorage.getItem("current_user"))
     const {getUsers, users } = useContext(UserContext)
@@ -16,9 +17,10 @@ export default ({ friend, image, title  }) => {
     }, [users])
 
     return (  
+    
+        
         <section className="scores">
-            <h4> {title} </h4>
-            {/* <ScoresDropDownFriends /> */}
+            
             {/* <ScoresDropDownFights />  */}
             <ScoresList />
         </section>

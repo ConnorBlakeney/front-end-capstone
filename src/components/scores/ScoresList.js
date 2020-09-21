@@ -4,6 +4,7 @@ import { ScoreContext } from "./ScoresProvider";
 import { FightContext } from "../fights/FightProvider";
 import { FriendContext } from "../friends/FriendsProvider";
 import Scores from "./Scores";
+import { Form } from 'reactstrap';
 import "./Scores.css"
 
 export const ScoresList = ({ history, props }) => {
@@ -21,7 +22,6 @@ export const ScoresList = ({ history, props }) => {
     const currentUserId = parseInt(localStorage.getItem("current_user"))
     const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
     // const foundFriend = filteredFriends.find(f => user.id === f.userFriendId)
-    console.log(filteredFriends)
 
     // Initialization effect hook -> Go get fight data
     useEffect(() => {
@@ -67,7 +67,12 @@ export const ScoresList = ({ history, props }) => {
                 </select>
             </label>
         </div>
-    
+
+        <form>
+            <input className="round__one blue" type="number"></input>
+            ---
+            <input className="round__one red" type="number"></input>
+        </form>
        
     </div>
     )

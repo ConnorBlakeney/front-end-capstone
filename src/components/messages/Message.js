@@ -17,6 +17,8 @@ export default ({ message, user  }) => {
 
     // const [message, setMessage] = useState({})
 
+    
+
     useEffect(() => {
         getUsers().then(getMessages)
     }, [])
@@ -50,7 +52,7 @@ export default ({ message, user  }) => {
             {/* <p>{message.content}</p> */}
 
             {currentUserId === message.userId ?
-            <ContentEditable html={message.content}/> : message.content}
+            <ContentEditable id={message.id} html={message.content} /> : message.content}
 
             <p>{message.timestamp.toLocaleString()}</p>
             {currentUserId === message.userId ? 

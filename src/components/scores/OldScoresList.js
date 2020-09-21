@@ -19,9 +19,9 @@ export const OldScoresList = ({ history, props }) => {
     const [fight, setFight] = useState({})
     const [friend, setFriend] = useState({})
 
-    const fightId = useRef(0)
     // const fightId = parseInt(fight.current.value)
     // console.log(fight)
+    const fightId = useRef(0)
 
     const currentUserId = parseInt(localStorage.getItem("current_user"))
     const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
@@ -37,21 +37,16 @@ export const OldScoresList = ({ history, props }) => {
     }, [])
     
 
+
     const handleSubmit = (e) => {
-        // addScore ({
-        //             userId: currentUserId,
-        //             roundOneRed: parseInt(document.getElementById('roundOneRed').value),
-        //             roundOneBlue: parseInt(document.getElementById('roundOneBlue').value),
-        //             roundTwoRed: parseInt(document.getElementById('roundTwoRed').value),
-        //             roundTwoBlue: parseInt(document.getElementById('roundTwoBlue').value),
-        //             roundThreeRed: parseInt(document.getElementById('roundThreeRed').value),
-        //             roundThreeBlue: parseInt(document.getElementById('roundThreeBlue').value),
-        //             roundFourRed: parseInt(document.getElementById('roundFourRed').value),
-        //             roundFourBlue: parseInt(document.getElementById('roundFourBlue').value),
-        //             roundFiveRed: parseInt(document.getElementById('roundFiveRed').value),
-        //             roundFiveBlue: parseInt(document.getElementById('roundFiveBlue').value),
-        //             // scoreFightId: fightId 
-        //         })
+        const fightSelect = parseInt(fightId.current.value)
+        const fightFind = scores.find(s => s.scoreFightId === fightSelect) || {}
+        // if (currentUserId === fightFind.userId && fightSelect === fightFind.scoreFightId) {
+        //    return <OldScoresList />
+
+        // }
+
+        console.log(fightSelect, fightFind)
         e.preventDefault()
     }
 
@@ -74,23 +69,38 @@ export const OldScoresList = ({ history, props }) => {
 
     return (
 
-    <div className="scores" key={score.id}>
+    <div className="scores" key={score.id}> 
+        <select defaultValue="" name="fight" ref={fightId} id="" className="form__control">
+                <option value="0">Select a fight</option>
+                {fights.map((e) => (
+                    
+                    <option key={e.id} value={e.id}>
+                        { e.R_fighter } vs { e.B_fighter }
+                    </option>
+                    
+                ))}
+        </select>
+        <button onClick={(e) => {
+                handleSubmit(e)
+                
+            }}>Show Scores</button>
 
         <div className="filteredFights">
-            
                 {
-                    scores.map(score => {
-                            return (
-                            <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
+                      scores.map(score => {
+                            return (  currentUserId === score.userId ?
+                            <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> : ""
                                 
                                        
                                                                 
                             )
-                })
-            }
+                    }) 
+                }
+            
             
 
         </div>
+
        
     </div>
     )

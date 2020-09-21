@@ -17,19 +17,19 @@ export default ({ friend, image, title, props  }) => {
     const filteredFriends = friends.filter(friend => friend.userId === currentUserId) 
     const [user, setUser] = useState({})
 
-    const fightId = useRef(0)
+    // const fightId = useRef(0)
 
-    const handleSubmit = (e) => {
-        const fightSelect = parseInt(fightId.current.value)
-        const fightFind = scores.find(s => s.scoreFightId === fightSelect) || {}
-        // if (currentUserId === fightFind.userId && fightSelect === fightFind.scoreFightId) {
-        //    return <OldScoresList />
+    // const handleSubmit = (e) => {
+    //     const fightSelect = parseInt(fightId.current.value)
+    //     const fightFind = scores.find(s => s.scoreFightId === fightSelect) || {}
+    //     // if (currentUserId === fightFind.userId && fightSelect === fightFind.scoreFightId) {
+    //     //    return <OldScoresList />
 
-        // }
+    //     // }
 
-        console.log(fightSelect, fightFind)
-        e.preventDefault()
-    }
+    //     console.log(fightSelect, fightFind)
+    //     e.preventDefault()
+    // }
     
     // useEffect(() => {
     //     console.log(fightId.current.value)
@@ -63,7 +63,7 @@ export default ({ friend, image, title, props  }) => {
                 </select>
             </label>
 
-            <select defaultValue="" name="fight" ref={fightId} id="" className="form__control">
+            {/* <select defaultValue="" name="fight" ref={fightId} id="" className="form__control">
                 <option value="0">Select a fight</option>
                 {fights.map((e) => (
                     
@@ -72,10 +72,13 @@ export default ({ friend, image, title, props  }) => {
                     </option>
                     
                 ))}
-            </select>
-            <button onClick={
-                handleSubmit
-            }>Show Scores</button>
+            </select> */}
+            {/* <button onClick={(e) => {
+                handleSubmit(e)
+                if (1 === 1) {
+                    return <OldScoresList/>
+                }
+            }}>Show Scores</button> */}
             {/* {currentUserId === fightFind.userId && fightSelect === fightFind.scoreFightId ? <OldScoresList /> : ""}  */}
             {1 === 1 ? <OldScoresList/> : ""}
             

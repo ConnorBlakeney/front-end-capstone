@@ -25,10 +25,11 @@ export const HomeDetail = (props) => {
             <div>Location: {fight.location}</div>
             <div>Date: {fight.date}</div>
             <div>Rounds: {fight.no_of_rounds}</div>
-            <div>{fight.R_age}   Age    {fight.B_age}</div>
-            <div>{fight.R_wins}-{fight.R_losses}   UFC Record    {fight.B_wins}-{fight.B_losses}</div>
-            <div>{fight.weight_class}   Weight Class    {fight.weight_class}</div>
-            <div>{fight.R_current_win_streak}   Current Win Streak   {fight.B_current_win_streak}</div>
+            <div>{fight.R_age}   <span>Age</span>    {fight.B_age}</div>
+            <div>{fight.R_wins}-{fight.R_losses}   <span>UFC Record</span>    {fight.B_wins}-{fight.B_losses}</div>
+            <div>{fight.weight_class}   <span>Weight Class</span>    {fight.weight_class}</div>
+            <div>{fight.R_Stance}   <span>Style</span>   {fight.B_Stance}</div>
+            <div>{Math.round(fight.R_Reach_cms *0.39370)} in   <span>Reach</span>   {Math.round(fight.B_Reach_cms *0.39370)} in</div>
         </section>
     )
 }

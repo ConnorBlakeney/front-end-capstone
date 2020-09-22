@@ -1,7 +1,6 @@
 import React from "react"
 import "./Home.css"
 import { Link } from "react-router-dom"
-import { HomeDetails } from "./HomeDetail";
 
 export default ({ fight }) => (
     <section key={fight.id} className="fight">

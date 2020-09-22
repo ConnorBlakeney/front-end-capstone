@@ -1,11 +1,13 @@
 .navbar {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: space-between;
     border: 1px solid black;
 }
 
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
+    justify-content: space-evenly;
+    font-size: 10px;
 }

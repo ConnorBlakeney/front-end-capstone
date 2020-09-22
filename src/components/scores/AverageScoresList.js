@@ -21,6 +21,8 @@ export const AverageScoresList = ({ history, props }) => {
     const [score, setScore] = useState({})
     const [fight, setFight] = useState({})
     const [friend, setFriend] = useState({})
+    const [filteredScores, setFilteredScores] = useState([])
+
 
     // const fightId = parseInt(fight.current.value)
     // console.log(fight)
@@ -50,13 +52,13 @@ export const AverageScoresList = ({ history, props }) => {
         scoreEl.innerHTML = ""
         // if (fightSelect === scoreFind.scoreFightId) {
         //                           console.log(scores, scoreFind.roundOneBlue, fightId, fightSelect)                                                          
-        //     scoreEl.innerHTML = 
-        //                         scores.map(score => {
-        //                     return ( 
+
+                               setFilteredScores( scores.map(score => {
+                            return ( 
                             
-        //                          <ScoresUser className="score__option" key={score.id} id={score.id} ref={fightId} score={score} {...props} /> 
-        //                     )
-        //             }) 
+                                 <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
+                            )
+                    }) )
                                                                                             
                           
         // }
@@ -91,7 +93,7 @@ export const AverageScoresList = ({ history, props }) => {
 
     return (
 
-    <div className="scores" key={score.id}> 
+    <div className="scores" key={score.userId}> 
         <select onChange={(e) => { handleSubmit(e) }} defaultValue="" name="fight" ref={fightId} id="" className="form__control">
                 <option value="0">Select a fight</option>
                 {fights.map((e) => (
@@ -109,14 +111,14 @@ export const AverageScoresList = ({ history, props }) => {
         <div id="filtered__average__scores">
         
                 {
-                    
-                      scores.map(score => {
-                            return ( 
+                    filteredScores
+                    //   scores.map(score => {
+                    //         return ( 
                             
-                                 <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
+                    //              <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
                                                                                             
-                            )
-                    }) 
+                    //         )
+                    // }) 
                             // fightSelect === scoreFind.scoreFightId 
 
                             // ? scores.find(score => {

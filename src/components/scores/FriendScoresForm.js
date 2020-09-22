@@ -63,7 +63,7 @@ export default ({ friend, image, title, props  }) => {
                 }
             }}>Show Scores</button> */}
             {/* {currentUserId === fightFind.userId && fightSelect === fightFind.scoreFightId ? <OldScoresList /> : ""}  */}
-            {1 === 1 ? <FriendScoresList/> : ""}
+            <FriendScoresList/>
             
         </section>
     )

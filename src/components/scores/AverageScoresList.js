@@ -133,15 +133,3 @@ export const AverageScoresList = ({ history, props }) => {
     </div>
     )
 }
-
-
-         {/* {currentUserId === score.userId && score.scoreFightId === fightSelect ? scores.map(score => {
-                            return (
-                            <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
-                                
-                                       
-                                                                
-                            )
-                        }) : ""}   
-
-        {console.log(currentUserId, score.userId, score.scoreFightId, fightSelect)} */}

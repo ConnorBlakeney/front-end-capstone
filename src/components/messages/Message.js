@@ -14,7 +14,7 @@ export default ({ message, user  }) => {
     const currentUser = users.find(u => u.id === message.userId) || {}
     const [input, setInput] = useState('')
 
-    // const message = useRef(null)
+    const messageRef = useRef(null)
     // console.log(currentUser)
 
     // const [message, setMessage] = useState({})
@@ -22,15 +22,18 @@ export default ({ message, user  }) => {
     const handleSubmit = (e) => {
 
         // const fightSelect = parseInt(fightId.current.value)
-        // editMessage({
-        //             id: message.id,
-        //             userId: currentUserId,
-        //             content: message.content,
-        //             timestamp: new Date(),
+        editMessage({
+                    id: message.id,
+                    userId: currentUserId,
+                    content: messageRef.current.textContent,
+                    timestamp: new Date(),
                    
-        //         })
-            console.log(input)
-        e.preventDefault()
+                })
+            // const messageRefParsed = parseInt(messageRef.current.value)
+
+            console.log(input, messageRef.current.textContent)
+
+        // e.preventDefault()
     }
 
     useEffect(() => {
@@ -66,7 +69,7 @@ export default ({ message, user  }) => {
             {/* <p>{message.content}</p> */}
 
             {currentUserId === message.userId ?
-            <ContentEditable onChange={(e) => handleSubmit(e)} value={input} id={message.id} html={message.content} /> : message.content}
+            <ContentEditable innerRef={messageRef} onChange={(e) => handleSubmit(e)} value={input} id={message.id} html={message.content} /> : message.content}
 
             <p>{message.timestamp.toLocaleString()}</p>
             {currentUserId === message.userId ? 

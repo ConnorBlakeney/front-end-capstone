@@ -21,13 +21,17 @@ export const FriendScoresList = ({ history, props }) => {
     // const [fight, setFight] = useState({})
     const [friend, setFriend] = useState({})
     const [filteredScores, setFilteredScores] = useState([])
+    const [filteredFriendScores, setFilteredFriendScores] = useState([])
+    const [friendSelected, setFriendSelected] = useState(false)
+    const [fightSelected, setFightSelected] = useState(false)
 
     // const fightId = parseInt(fight.current.value)
     // console.log(fight)
     const fightId = useRef(0)
+    const friendId = useRef(0)
 
     const currentUserId = parseInt(localStorage.getItem("current_user"))
-    // const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
+    const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
     const friendsToUser = users.map(user => user.id === friend.userFriendId)
     // console.log(friendsToUser)
 
@@ -50,10 +54,9 @@ export const FriendScoresList = ({ history, props }) => {
 
         const handleSubmit = (e) => {
             const fightSelect = parseInt(fightId.current.value)
-            const filteredFriends = friends.filter(friend => friend.userId === currentUserId) 
-            console.log(filteredFriends)
+            // console.log(filteredFriends)
             const otherUsers = users.filter(user => user.id !== currentUserId)
-            console.log(otherUsers)
+            // console.log(otherUsers)
 
 
             const filteredScoresForOtherUsers = scores.filter(s => s.userId !== currentUserId)
@@ -64,6 +67,52 @@ export const FriendScoresList = ({ history, props }) => {
             // if (currentUserId === scoreFind.userId && fightSelect === scoreFind.scoreFightId) {
             //    return <OldScoresList />
             console.log(fightSelect, filteredScoresForCard)
+            // const scoreEl = document.querySelector("#filtered__scores")
+            // scoreEl.innerHTML = ""
+            // if (fightSelect === scoreFind.scoreFightId) {
+            //                           console.log(scores, scoreFind.roundOneBlue, fightId, fightSelect)                                                          
+                setFilteredScores(filteredScoresForCard.map(score => {
+                                    
+                                return ( 
+                                
+                                    <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
+                                )
+                        }) )  
+
+                                                                                                
+                            
+            // }
+
+            // for(key in scoreFind) {
+            //     if (key.scoreFightId === fightSelect) {
+                
+            //     }
+            // }
+            // }
+            
+            e.preventDefault()
+    }
+
+        const handleSubmitFriend = (e) => {
+            const fightSelect = parseInt(fightId.current.value)
+            // console.log(fightSelect)
+            const friendSelect = parseInt(friendId.current.value)
+            const filteredFriends = friends.filter(friend => friend.userId === currentUserId) 
+            const friendFind = filteredFriends.find(f => f.userFriendId === friendSelect) || {}
+            console.log(filteredFriends, friendFind)
+            // const otherUsers = users.filter(user => user.id !== currentUserId)
+
+
+            const filteredScoresForOtherUsers = scores.filter(s => s.userId !== currentUserId)
+            // const filteredScoreCardForParticularFriend = filteredScoresForOtherUsers.filter(s => s.userId === user.id)
+            console.log(friendSelect)
+            const filteredScoresForCard = filteredScoresForOtherUsers.filter(s => s.userId === friendSelect)
+
+            // const filteredScoresForCurrentUser = filteredScoresForCard.filter(s => s.userId === currentUserId)
+            // const scoreFind = filteredScoresForCurrentUser.find(s => s.scoreFightId === fightSelect) || {}
+            // if (currentUserId === scoreFind.userId && fightSelect === scoreFind.scoreFightId) {
+            //    return <OldScoresList />
+            // console.log(fightSelect, filteredScoresForCard)
             // const scoreEl = document.querySelector("#filtered__scores")
             // scoreEl.innerHTML = ""
             // if (fightSelect === scoreFind.scoreFightId) {
@@ -122,6 +171,22 @@ export const FriendScoresList = ({ history, props }) => {
                     
                 ))}
         </select>
+
+    
+
+        <select onChange={(e) => { handleSubmitFriend(e) }} defaultValue="" name="friends" id="" className="form__control" ref={friendId}>
+                <option value="0">Select a friend</option>
+                {filteredFriends.map((friend) => (
+                    
+                    <option key={friend.userFriendId} value={friend.userFriendId}>
+                        { users.map(user => user.id === friend.userFriendId ? user.name : "")}
+                    </option>
+                    
+                ))}
+        </select>
+    
+                
+            
 
         <h3>Friend's Scorecard</h3>
 
@@ -319,3 +384,19 @@ export const FriendScoresList = ({ history, props }) => {
                         }) : ""}   
 
         {console.log(currentUserId, score.userId, score.scoreFightId, fightSelect)} */}
+
+//  <select className="filtered__friends">
+//                      {
+//                         filteredFriends.map(friend => {
+//                             return (
+                                
+//                                 <option key={friend.id} id={friend.id}> { users.map(user => user.id === friend.userFriendId ? user.name : "") }
+//                                         {/* <Scores key={score.id} score={score} user={user} fight={fight} {...props}/>
+//                                     {fight.id} */}
+//                                 </option>
+                                
+//                             )
+//                         })
+                        
+//                     }
+//                 </select>

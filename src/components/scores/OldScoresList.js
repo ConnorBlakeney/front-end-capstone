@@ -3,11 +3,14 @@ import { UserContext } from "../users/UserProvider"
 import { ScoreContext } from "./ScoresProvider";
 import { FightContext } from "../fights/FightProvider";
 import { FriendContext } from "../friends/FriendsProvider";
-import { Form } from 'reactstrap';
+import ReactDOM from "react-dom"
 import "./Scores.css"
 import ScoresUser from "./ScoresUser";
 
+
 export const OldScoresList = ({ history, props }) => {
+
+
     const { getUsers, users } = useContext(UserContext)
     const { getScore, scores, addScore } = useContext(ScoreContext)
     const { getFights, fights } = useContext(FightContext)
@@ -43,10 +46,20 @@ export const OldScoresList = ({ history, props }) => {
         const fightFind = scores.find(s => s.scoreFightId === fightSelect) || {}
         // if (currentUserId === fightFind.userId && fightSelect === fightFind.scoreFightId) {
         //    return <OldScoresList />
-
+        const scoreEl = document.querySelector("#filtered__scores")
+        scoreEl.innerHTML = ""
+        if (fightSelect === fightFind.scoreFightId) {
+            scoreEl.innerHTML = scores.map(score => {
+                            return ( 
+                            
+                                 <ScoresUser className="score__option" key={score.id} id={score.id} ref={fightId} score={score} {...props} /> 
+                                                                                            
+                            )
+                    })
+        }
         // }
-
-        console.log(fightSelect, fightFind)
+        
+        console.log(fightSelect === fightFind.scoreFightId, scores.map(s => s.roundOneBlue))
         e.preventDefault()
     }
 
@@ -70,7 +83,7 @@ export const OldScoresList = ({ history, props }) => {
     return (
 
     <div className="scores" key={score.id}> 
-        <select defaultValue="" name="fight" ref={fightId} id="" className="form__control">
+        <select onChange={(e) => { handleSubmit(e) }} defaultValue="" name="fight" ref={fightId} id="" className="form__control">
                 <option value="0">Select a fight</option>
                 {fights.map((e) => (
                     
@@ -80,31 +93,28 @@ export const OldScoresList = ({ history, props }) => {
                     
                 ))}
         </select>
-        <button onClick={(e) => {
-                handleSubmit(e)
-                
-            }}>Show Scores</button>
-
-        <div className="filteredFights">
+        <div id="filtered__scores">
+        
                 {
-                      scores.map(score => {
-                            return (  currentUserId === score.userId ?
-                            <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> : ""
-                                
-                                       
-                                                                
-                            )
-                    }) 
+                    
+                    //   scores.map(score => {
+                    //         return ( 
+                            
+                    //              <ScoresUser className="score__option" key={score.id} id={score.id} ref={fightId} score={score} {...props} /> 
+                                                                                            
+                    //         )
+                    // }) 
                 }
             
             
 
         </div>
-
        
     </div>
     )
 }
+
+
          {/* {currentUserId === score.userId && score.scoreFightId === fightSelect ? scores.map(score => {
                             return (
                             <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 

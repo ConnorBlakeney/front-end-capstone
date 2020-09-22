@@ -22,8 +22,8 @@ export const FriendScoresList = ({ history, props }) => {
     const [friend, setFriend] = useState({})
     const [filteredScores, setFilteredScores] = useState([])
     const [filteredFriendScores, setFilteredFriendScores] = useState([])
-    const [friendSelected, setFriendSelected] = useState(false)
-    const [fightSelected, setFightSelected] = useState(false)
+    // const [friendSelected, setFriendSelected] = useState(false)
+    // const [fightSelected, setFightSelected] = useState(false)
 
     // const fightId = parseInt(fight.current.value)
     // console.log(fight)

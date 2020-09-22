@@ -46,7 +46,7 @@ export const AverageScoresList = ({ history, props }) => {
         const scoreFind = scores.find(s => s.scoreFightId === fightSelect) || {}
         // if (currentUserId === scoreFind.userId && fightSelect === scoreFind.scoreFightId) {
         //    return <OldScoresList />
-        const scoreEl = document.querySelector("#filtered__average__scores")
+        const scoreEl = document.querySelector("#filtered__scores")
         scoreEl.innerHTML = ""
         // if (fightSelect === scoreFind.scoreFightId) {
         //                           console.log(scores, scoreFind.roundOneBlue, fightId, fightSelect)                                                          
@@ -110,13 +110,13 @@ export const AverageScoresList = ({ history, props }) => {
         
                 {
                     
-                      scores.map(score => {
-                            return ( 
+                    //   scores.map(score => {
+                    //         return ( 
                             
-                                 <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
+                    //              <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
                                                                                             
-                            )
-                    }) 
+                    //         )
+                    // }) 
                             // fightSelect === scoreFind.scoreFightId 
 
                             // ? scores.find(score => {

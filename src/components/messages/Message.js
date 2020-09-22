@@ -12,12 +12,26 @@ export default ({ message, user  }) => {
     // const [ currentUser, setCurrentUser] = useState({})
     // const editMode = props.match.params.hasOwnProperty("messageId")
     const currentUser = users.find(u => u.id === message.userId) || {}
+    const [input, setInput] = useState('')
+
     // const message = useRef(null)
     // console.log(currentUser)
 
     // const [message, setMessage] = useState({})
 
-    
+    const handleSubmit = (e) => {
+
+        // const fightSelect = parseInt(fightId.current.value)
+        // editMessage({
+        //             id: message.id,
+        //             userId: currentUserId,
+        //             content: message.content,
+        //             timestamp: new Date(),
+                   
+        //         })
+            console.log(input)
+        e.preventDefault()
+    }
 
     useEffect(() => {
         getUsers().then(getMessages)
@@ -52,7 +66,7 @@ export default ({ message, user  }) => {
             {/* <p>{message.content}</p> */}
 
             {currentUserId === message.userId ?
-            <ContentEditable id={message.id} html={message.content} /> : message.content}
+            <ContentEditable onChange={(e) => handleSubmit(e)} value={input} id={message.id} html={message.content} /> : message.content}
 
             <p>{message.timestamp.toLocaleString()}</p>
             {currentUserId === message.userId ? 
@@ -62,7 +76,7 @@ export default ({ message, user  }) => {
                                 deleteMessage(message.id)                                   
             }}>Delete</button>
             : ""}
-            {/* {currentUserId === message.userId ? 
+            {currentUserId === message.userId ? 
             <button id={message.id} className="del btn"
                     onClick={
                         () => {
@@ -74,7 +88,7 @@ export default ({ message, user  }) => {
                                      
                 })                                   
             }}>Edit</button>
-            : ""} */}
+            : ""}
         </section>
     )
 

@@ -117,7 +117,7 @@ export const FriendScoresList = ({ history, props }) => {
             // scoreEl.innerHTML = ""
             // if (fightSelect === scoreFind.scoreFightId) {
             //                           console.log(scores, scoreFind.roundOneBlue, fightId, fightSelect)                                                          
-                setFilteredScores(filteredScoresForCard.map(score => {
+                setFilteredFriendScores(filteredScoresForCard.map(score => {
                                     
                                 return ( 
                                 
@@ -196,7 +196,7 @@ export const FriendScoresList = ({ history, props }) => {
                 { 
                     // console.log(filteredScores)
                     
-                    filteredScores
+                    filteredScores && filteredFriendScores
                     //   scores.map(score => {
                     //         return ( 
                             

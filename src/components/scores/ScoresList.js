@@ -90,7 +90,6 @@ export const ScoresList = ({ history, props }) => {
                                 </option>
                             ))}
                         </select>
-            
 
         <section className="card__form">    
                 <form className="round__form red">

@@ -8,7 +8,7 @@ import "./Scores.css"
 import ScoresUser from "./ScoresUser";
 
 
-export const OldScoresList = ({ history, props }) => {
+export const FriendScoresList = ({ history, props }) => {
 
 
     const { getUsers, users } = useContext(UserContext)
@@ -102,10 +102,27 @@ export const OldScoresList = ({ history, props }) => {
                     
                 ))}
         </select>
+        <label>
+                <select className="filtered__friends">
+                    {
+                        filteredFriends.map(friend => {
+                            return (
+                                
+                                <option key={friend.id} id={friend.id}> { users.map(user => user.id === friend.userFriendId ? user.name : "") }
+                                        {/* <Scores key={score.id} score={score} user={user} fight={fight} {...props}/>
+                                    {fight.id} */}
+                                </option>
+                                
+                            )
+                        })
+                        
+                    }
+                </select>
+            </label>
 
-        <h3>Your Scorecard</h3>
-
+            <h3>Friend's Scorecard</h3>
         
+
         <div id="filtered__scores">
         
                 { 

@@ -5,7 +5,7 @@ import { FightContext } from "../fights/FightProvider";
 import { FriendContext } from "../friends/FriendsProvider";
 import { ScoreContext } from "./ScoresProvider";
 import "./Scores.css"
-import { OldScoresList } from "./OldScoresList";
+import { FriendScoresList } from "./FriendScoresList";
 
 
 export default ({ friend, image, title, props  }) => {
@@ -43,9 +43,8 @@ export default ({ friend, image, title, props  }) => {
     
         
         <section className="old__scores form">
-            <h2 className="friendForm__title">Friends and Previous Scores</h2>
 
-           
+            
 
             {/* <select defaultValue="" name="fight" ref={fightId} id="" className="form__control">
                 <option value="0">Select a fight</option>
@@ -64,7 +63,7 @@ export default ({ friend, image, title, props  }) => {
                 }
             }}>Show Scores</button> */}
             {/* {currentUserId === fightFind.userId && fightSelect === fightFind.scoreFightId ? <OldScoresList /> : ""}  */}
-            {1 === 1 ? <OldScoresList/> : ""}
+            {1 === 1 ? <FriendScoresList/> : ""}
             
         </section>
     )

@@ -3,7 +3,6 @@ import "./Scores.css"
 
 export default ({ fight, user, score }) => (
     <section key={score.id} className="score">
-        <h3>Your Scorecard</h3>
         <div className="score__card">
             <div className="score__fight red">
                     <p className="round__one red">Round 1: { score.roundOneRed }</p>           

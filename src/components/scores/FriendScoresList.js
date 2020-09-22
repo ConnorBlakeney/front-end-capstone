@@ -196,7 +196,7 @@ export const FriendScoresList = ({ history, props }) => {
                 { 
                     // console.log(filteredScores)
                     
-                    filteredScores || filteredFriendScores
+                    filteredScores && filteredFriendScores
                     //   scores.map(score => {
                     //         return ( 
                             

@@ -39,14 +39,14 @@ export const FriendScoresList = ({ history, props }) => {
         getScore().then(getUsers).then(getFights).then(getFriends)
     }, [])
     
-    console.log(scores)
+    // console.log(scores)
 
     const handleSubmit = (e) => {
         const fightSelect = parseInt(fightId.current.value)
         const scoreFind = scores.find(s => s.scoreFightId === fightSelect) || {}
         // if (currentUserId === scoreFind.userId && fightSelect === scoreFind.scoreFightId) {
         //    return <OldScoresList />
-        const scoreEl = document.querySelector("#filtered__scores")
+        const scoreEl = document.querySelector("#filtered__friend__scores")
         scoreEl.innerHTML = ""
         // if (fightSelect === scoreFind.scoreFightId) {
         //                           console.log(scores, scoreFind.roundOneBlue, fightId, fightSelect)                                                          
@@ -68,7 +68,7 @@ export const FriendScoresList = ({ history, props }) => {
         // }
         // }
         
-        console.log(fightSelect === scoreFind.scoreFightId, scores.map(s => s.roundOneBlue), scores, fightSelect)
+        // console.log(fightSelect === scoreFind.scoreFightId, scores.map(s => s.roundOneBlue), scores, fightSelect)
         e.preventDefault()
     }
 
@@ -123,7 +123,7 @@ export const FriendScoresList = ({ history, props }) => {
             <h3>Friend's Scorecard</h3>
         
 
-        <div id="filtered__scores">
+        <div id="filtered__friend__scores">
         
                 { 
                     
@@ -143,7 +143,7 @@ export const FriendScoresList = ({ history, props }) => {
             
                                                                                             
                           
-        }
+        
 
         </div>
        

@@ -14,6 +14,7 @@ import { ScoreProvider } from "./scores/ScoresProvider";
 import ScoresForm from "./scores/ScoresForm";
 import OldScoresForm from "./scores/OldScoresForm";
 import FriendScoresForm from "./scores/FriendScoresForm";
+import AverageScoresForm from "./scores/AverageScoresForm";
 
 export const ApplicationViews = (props) => {
     return (
@@ -38,6 +39,7 @@ export const ApplicationViews = (props) => {
                                         <>
                                         <OldScoresForm />
                                         <FriendScoresForm />
+                                        <AverageScoresForm />
                                         <FriendForm />
                                         <UserForm history={props.history}/>
                                        </> 

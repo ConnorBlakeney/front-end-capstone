@@ -8,7 +8,7 @@ import "./Scores.css"
 import ScoresUser from "./ScoresUser";
 
 
-export const OldScoresList = ({ history, props }) => {
+export const AverageScoresList = ({ history, props }) => {
 
 
     const { getUsers, users } = useContext(UserContext)
@@ -19,19 +19,16 @@ export const OldScoresList = ({ history, props }) => {
     // const [filteredFights, setFiltered] = useState([])
     const [user, setUser] = useState({})
     const [score, setScore] = useState({})
-    // const [fight, setFight] = useState({})
+    const [fight, setFight] = useState({})
     const [friend, setFriend] = useState({})
-    const [filteredScores, setFilteredScores] = useState([])
 
     // const fightId = parseInt(fight.current.value)
     // console.log(fight)
     const fightId = useRef(0)
 
     const currentUserId = parseInt(localStorage.getItem("current_user"))
-    // const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
-    // const fightSelect = parseInt(fightId.current.value)
-    const filteredScoresForCurrentUser = scores.filter(s => s.userId === currentUserId)
-    // console.log(filteredScores)
+    const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
+    const fightSelect = parseInt(fightId.current.value)
     // console.log(fightSelect)
 
     // const foundFight = fights.find(f => f.id === document.getElementsByClassName('fight__option').value,) || {}
@@ -44,44 +41,41 @@ export const OldScoresList = ({ history, props }) => {
     
     // console.log(scores)
 
-        const handleSubmit = (e) => {
-            const fightSelect = parseInt(fightId.current.value)
-            const filteredScoresForCard = filteredScoresForCurrentUser.filter(s => s.scoreFightId === fightSelect)
-            // const scoreFind = filteredScoresForCurrentUser.find(s => s.scoreFightId === fightSelect) || {}
-            // if (currentUserId === scoreFind.userId && fightSelect === scoreFind.scoreFightId) {
-            //    return <OldScoresList />
-            console.log(fightSelect, filteredScoresForCard)
-            // const scoreEl = document.querySelector("#filtered__scores")
-            // scoreEl.innerHTML = ""
-            // if (fightSelect === scoreFind.scoreFightId) {
-            //                           console.log(scores, scoreFind.roundOneBlue, fightId, fightSelect)                                                          
-                setFilteredScores(filteredScoresForCard.map(score => {
-                                    
-                                return ( 
-                                
-                                    <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
-                                )
-                        }) )  
-
-                                                                                                
+    const handleSubmit = (e) => {
+        const fightSelect = parseInt(fightId.current.value)
+        const scoreFind = scores.find(s => s.scoreFightId === fightSelect) || {}
+        // if (currentUserId === scoreFind.userId && fightSelect === scoreFind.scoreFightId) {
+        //    return <OldScoresList />
+        const scoreEl = document.querySelector("#filtered__average__scores")
+        scoreEl.innerHTML = ""
+        // if (fightSelect === scoreFind.scoreFightId) {
+        //                           console.log(scores, scoreFind.roundOneBlue, fightId, fightSelect)                                                          
+        //     scoreEl.innerHTML = 
+        //                         scores.map(score => {
+        //                     return ( 
                             
-            // }
+        //                          <ScoresUser className="score__option" key={score.id} id={score.id} ref={fightId} score={score} {...props} /> 
+        //                     )
+        //             }) 
+                                                                                            
+                          
+        // }
 
-            // for(key in scoreFind) {
-            //     if (key.scoreFightId === fightSelect) {
-                
-            //     }
-            // }
-            // }
+        // for(key in scoreFind) {
+        //     if (key.scoreFightId === fightSelect) {
             
-            e.preventDefault()
+        //     }
+        // }
+        // }
+        
+        // console.log(fightSelect === scoreFind.scoreFightId, scores.map(s => s.roundOneBlue), scores, fightSelect)
+        e.preventDefault()
     }
 
     
     // useEffect(() => {
     //     setUser(users)
     // }, [users])
-
     // useEffect(() => {
     //     setFight(fight)
     //     console.log(fight)
@@ -94,10 +88,9 @@ export const OldScoresList = ({ history, props }) => {
     useEffect(() => {
         setFriend(friends)
     }, [friends])
-    
 
     return (
-    
+
     <div className="scores" key={score.id}> 
         <select onChange={(e) => { handleSubmit(e) }} defaultValue="" name="fight" ref={fightId} id="" className="form__control">
                 <option value="0">Select a fight</option>
@@ -110,22 +103,20 @@ export const OldScoresList = ({ history, props }) => {
                 ))}
         </select>
 
-        <h3>Your Scorecard</h3>
-
+            <h3>Average User Scores</h3>
         
-        <div id="filtered__scores">
 
-                { 
-                    // console.log(filteredScores)
+        <div id="filtered__average__scores">
+        
+                {
                     
-                    filteredScores
-                    //   scores.map(score => {
-                    //         return ( 
+                      scores.map(score => {
+                            return ( 
                             
-                    //              <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
+                                 <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
                                                                                             
-                    //         )
-                    // }) 
+                            )
+                    }) 
                             // fightSelect === scoreFind.scoreFightId 
 
                             // ? scores.find(score => {

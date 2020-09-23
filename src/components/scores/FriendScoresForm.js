@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef} from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { UserContext } from "../users/UserProvider";
 // import { FriendContext } from "./FriendsProvider";
 import { FightContext } from "../fights/FightProvider";

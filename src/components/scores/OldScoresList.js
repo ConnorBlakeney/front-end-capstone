@@ -74,7 +74,8 @@ export const OldScoresList = ({ props }) => {
                 { 
                     filteredScores
                 }
-        </div>   
+        </div> 
+  
     </div>
             
                                                                                             

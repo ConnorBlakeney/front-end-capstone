@@ -3,99 +3,57 @@ import { UserContext } from "../users/UserProvider"
 import { ScoreContext } from "./ScoresProvider";
 import { FightContext } from "../fights/FightProvider";
 import { FriendContext } from "../friends/FriendsProvider";
-import ReactDOM from "react-dom"
 import "./Scores.css"
 import ScoresUser from "./ScoresUser";
 
 
-export const OldScoresList = ({ history, props }) => {
+export const OldScoresList = ({ props }) => {
 
-
-    const { getUsers, users } = useContext(UserContext)
-    const { getScore, scores, addScore } = useContext(ScoreContext)
+    //grabbing context
+    const { getUsers } = useContext(UserContext)
+    const { getScore, scores } = useContext(ScoreContext)
     const { getFights, fights } = useContext(FightContext)
-    const { getFriends, friends } = useContext(FriendContext)
+    const { getFriends } = useContext(FriendContext)
 
-    // const [filteredFights, setFiltered] = useState([])
-    const [user, setUser] = useState({})
-    const [score, setScore] = useState({})
-    // const [fight, setFight] = useState({})
-    const [friend, setFriend] = useState({})
-    const [filteredScores, setFilteredScores] = useState([])
+    // setting state variables
+    const [ score ] = useState({})
+    const [ filteredScores, setFilteredScores ] = useState([])
 
-    // const fightId = parseInt(fight.current.value)
-    // console.log(fight)
+    // setting ref to grab value of fight selected
     const fightId = useRef(0)
 
     const currentUserId = parseInt(localStorage.getItem("current_user"))
-    // const filteredFriends = friends.filter(friend => friend.userId === currentUserId)
-    // const fightSelect = parseInt(fightId.current.value)
-    const filteredScoresForCurrentUser = scores.filter(s => s.userId === currentUserId)
-    // console.log(filteredScores)
-    // console.log(fightSelect)
 
-    // const foundFight = fights.find(f => f.id === document.getElementsByClassName('fight__option').value,) || {}
-    // const foundFriend = filteredFriends.find(f => user.id === f.userFriendId)
+    // filtering to find score cards specific to the current user
+    const filteredScoresForCurrentUser = scores.filter(s => s.userId === currentUserId)
 
     // Initialization effect hook -> Go get fight data
     useEffect(() => {
         getScore().then(getUsers).then(getFights).then(getFriends)
     }, [])
     
-    // console.log(scores)
 
+        // change event for scores filter, grabs value for fight selected with ref 
+        // then filters score cards for current user, then maps over to render to DOM
+        // sets state then recalls in filtered__scores
         const handleSubmit = (e) => {
             const fightSelect = parseInt(fightId.current.value)
             const filteredScoresForCard = filteredScoresForCurrentUser.filter(s => s.scoreFightId === fightSelect)
-            // const scoreFind = filteredScoresForCurrentUser.find(s => s.scoreFightId === fightSelect) || {}
-            // if (currentUserId === scoreFind.userId && fightSelect === scoreFind.scoreFightId) {
-            //    return <OldScoresList />
-            console.log(fightSelect, filteredScoresForCard)
-            // const scoreEl = document.querySelector("#filtered__scores")
-            // scoreEl.innerHTML = ""
-            // if (fightSelect === scoreFind.scoreFightId) {
-            //                           console.log(scores, scoreFind.roundOneBlue, fightId, fightSelect)                                                          
+            
+                                                            
                 setFilteredScores(filteredScoresForCard.map(score => {
                                     
-                                return ( 
-                                
-                                    <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
-                                )
-                        }) )  
-
-                                                                                                
-                            
-            // }
-
-            // for(key in scoreFind) {
-            //     if (key.scoreFightId === fightSelect) {
-                
-            //     }
-            // }
-            // }
-            
+                    return ( 
+                    
+                        <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
+                    )
+                }) )  
+                                                                                                          
             e.preventDefault()
-    }
-
+        }
     
-    // useEffect(() => {
-    //     setUser(users)
-    // }, [users])
-
-    // useEffect(() => {
-    //     setFight(fight)
-    //     console.log(fight)
-    // }, [fight])
-
-    // useEffect(() => {
-    //     setScore(scores)
-    // }, [scores])
-
-    useEffect(() => {
-        setFriend(friends)
-    }, [friends])
-    
-
+    // renders fight scroll that upon select renders related score card to DOM
+    // also calls and renders filteredScores state variable set above
     return (
     
     <div className="scores" key={score.id}> 
@@ -111,46 +69,17 @@ export const OldScoresList = ({ history, props }) => {
         </select>
 
         <h3>Your Scorecard</h3>
-
-        
+       
         <div id="filtered__scores">
-
                 { 
-                    // console.log(filteredScores)
-                    
                     filteredScores
-                    //   scores.map(score => {
-                    //         return ( 
-                            
-                    //              <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
-                                                                                            
-                    //         )
-                    // }) 
-                            // fightSelect === scoreFind.scoreFightId 
-
-                            // ? scores.find(score => {
-                            //     score.scoreFightId === fightSelect
-                            // }) 
                 }
+        </div>   
+    </div>
             
                                                                                             
                           
         
 
-        </div>
-       
-    </div>
     )
 }
-
-
-         {/* {currentUserId === score.userId && score.scoreFightId === fightSelect ? scores.map(score => {
-                            return (
-                            <ScoresUser className="score__option" key={score.id} id={score.id} score={score} {...props} /> 
-                                
-                                       
-                                                                
-                            )
-                        }) : ""}   
-
-        {console.log(currentUserId, score.userId, score.scoreFightId, fightSelect)} */}

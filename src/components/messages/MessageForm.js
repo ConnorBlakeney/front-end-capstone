@@ -45,7 +45,7 @@ export const MessageForm = ({  timestamp, props  }) => {
     return (
         <div className="message">
             <div className="message__top">
-                <form>
+                <form className="message__form">
                     <input value={input} onChange={(e) => setInput(e.target.value)} className="message__input" placeholder={"What do you think?"}></input>
                     <button id={currentUserId} onClick={
                             handleSubmit

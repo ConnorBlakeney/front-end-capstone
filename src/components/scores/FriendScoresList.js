@@ -16,7 +16,6 @@ export const FriendScoresList = ({ props }) => {
 
     // setting state variables
     const [ score ] = useState({})
-    const [ setFriend] = useState({})
     const [ filteredScores, setFilteredScores ] = useState([])
     const [ filteredFriendScores, setFilteredFriendScores ] = useState([])
 

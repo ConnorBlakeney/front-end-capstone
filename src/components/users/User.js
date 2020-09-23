@@ -8,13 +8,16 @@ export default ({ user }) => {
     const currentUserId = parseInt(localStorage.getItem("current_user"))
     const { addFriend } = useContext(FriendContext)
  
-
+    // logic checks to see if the user is the currentuser or not, if so it renders
+    // that person's name and an add button
     return (    
 
     <section key={user.id} className="user">
+
         <div id={user.id} className="user__name" >
+
             {user.id !== currentUserId ? user.name : ""} 
-            {/* {user.name} */}
+
             {user.id !== currentUserId ? 
 
             <button id={user.id} className="add btn"
@@ -29,7 +32,9 @@ export default ({ user }) => {
                                 }
             >Add</button>
              : ""}
+
         </div>
+
     </section>
     )
 }

@@ -9,9 +9,8 @@ export default () => {
     
         // rendering scores form
         
-        <section className="scores form">
+        <section className="scores__form">
             
-            <h2>Live Scores and Chat</h2>
             <ScoresList />
             
         </section>

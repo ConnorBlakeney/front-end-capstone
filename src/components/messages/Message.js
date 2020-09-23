@@ -79,7 +79,7 @@ export default ({ message, user  }) => {
                                 deleteMessage(message.id)                                   
             }}>Delete</button>
             : ""}
-            {currentUserId === message.userId ? 
+            {/* {currentUserId === message.userId ? 
             <button id={message.id} className="del btn"
                     onClick={
                         () => {
@@ -91,7 +91,7 @@ export default ({ message, user  }) => {
                                      
                 })                                   
             }}>Edit</button>
-            : ""}
+            : ""} */}
         </section>
     )
 

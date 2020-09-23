@@ -60,7 +60,7 @@ export const FriendScoresList = ({ history, props }) => {
 
 
             const filteredScoresForOtherUsers = scores.filter(s => s.userId !== currentUserId)
-            const filteredScoresForCard = filteredScoresForOtherUsers.filter(s => s.scoreFightId === fightSelect)
+            const filteredScoresForCard = filteredFriends.filter(s => s.scoreFightId === fightSelect)
 
             // const filteredScoresForCurrentUser = filteredScoresForCard.filter(s => s.userId === currentUserId)
             // const scoreFind = filteredScoresForCurrentUser.find(s => s.scoreFightId === fightSelect) || {}

@@ -71,24 +71,26 @@ export const AverageScoresList = ({ history, props }) => {
 
 
 
-                                    setFilteredScores( fightSelect ===  scoreFind.scoreFightId  ? <section key={score.id} className="score">
-                                    <div className="score__card">
-                                        <div className="score__fight red">
-                                                <p className="round__one red">Round 1: { averageScoreOneRed }</p>           
-                                                <p className="round__two red">Round 2: { averageScoreTwoRed }</p>         
-                                                <p className="round__three red">Round 3: { averageScoreThreeRed } </p>         
-                                                <p className="round__four red">Round 4: { averageScoreFourRed } </p>       
-                                                <p className="round__five red">Round 5: { averageScoreFiveRed } </p>        
-                                        </div>
-                                        <div className="score__fight blue">
-                                                <p className="round__one blue"> - { averageScoreOneBlue }</p>         
-                                                <p className="round__one blue"> - { averageScoreTwoBlue }</p>        
-                                                <p className="round__one blue"> - { averageScoreThreeBlue }</p>         
-                                                <p className="round__one blue"> - { averageScoreFourBlue }</p>         
-                                                <p className="round__one blue"> - { averageScoreFiveBlue }</p>         
-                                        </div>
-                                    </div>
-                                </section> : "" )
+            setFilteredScores( fightSelect ===  scoreFind.scoreFightId  
+                ? <section key={score.id} className="score">
+                    <div className="score__card">
+                        <div className="score__fight red">
+                                <p className="round__one red">Round 1: { averageScoreOneRed }</p>           
+                                <p className="round__two red">Round 2: { averageScoreTwoRed }</p>         
+                                <p className="round__three red">Round 3: { averageScoreThreeRed } </p>         
+                                <p className="round__four red">Round 4: { averageScoreFourRed } </p>       
+                                <p className="round__five red">Round 5: { averageScoreFiveRed } </p>        
+                        </div>
+                        <div className="score__fight blue">
+                                <p className="round__one blue"> - { averageScoreOneBlue }</p>         
+                                <p className="round__one blue"> - { averageScoreTwoBlue }</p>        
+                                <p className="round__one blue"> - { averageScoreThreeBlue }</p>         
+                                <p className="round__one blue"> - { averageScoreFourBlue }</p>         
+                                <p className="round__one blue"> - { averageScoreFiveBlue }</p>         
+                        </div>
+                    </div>
+                </section> 
+                : "" )
                     //            setFilteredScores( scoreFilter.map(score => {
                     //         return ( 
                     //                console.log(score)

@@ -1,7 +1,7 @@
-import React, { useState } from "react"
+import React from "react"
 import "./Scores.css"
 
-export default ({ fight, user, score }) => (
+export default ({ score }) => (
     <section key={score.id} className="score">
         <div className="score__card">
             <div className="score__fight red">

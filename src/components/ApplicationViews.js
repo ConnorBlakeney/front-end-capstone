@@ -9,7 +9,6 @@ import { UserProvider } from "./users/UserProvider";
 import { MessageProvider } from "./messages/MessageProvider";
 import { UserForm } from "./users/UserForm";
 import { MessageForm } from "./messages/MessageForm";
-import { ScoresList } from "./scores/ScoresList";
 import { ScoreProvider } from "./scores/ScoresProvider";
 import ScoresForm from "./scores/ScoresForm";
 import OldScoresForm from "./scores/OldScoresForm";

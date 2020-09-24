@@ -8,15 +8,7 @@ export const MessageList = ({ history, props }) => {
     const { getUsers, users } = useContext(UserContext)
     const { getMessages, messages } = useContext(MessageContext)
 
-    // const [filteredFights, setFiltered] = useState([])
     const [user, setUser] = useState({})
-    const [message, setMessage] = useState({})
-
-
-    // const sortedFights = [...filteredFights].sort((a, b) => {
-    //     return b.date - a.date;
-    // })
-
 
     // Initialization effect hook -> Go get fight data
     useEffect(() => {
@@ -27,20 +19,15 @@ export const MessageList = ({ history, props }) => {
         setUser(users)
     }, [users])
     
-    useEffect(() => {
-        setMessage(messages)
-        // console.log(message)
-    }, [messages])
-    
-
-
-
+    // jsx maps over message component to render individual messages by most recent
     return (
         
-            <div className="fights">
+            <div className="message__list">
                 {
                     messages.map(message => {
+
                         return <Message key={message.id} message={message} user={user} {...props}/>
+
                     }).reverse()
                     
                 }

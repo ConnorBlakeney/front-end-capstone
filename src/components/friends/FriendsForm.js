@@ -1,41 +1,31 @@
-import React, { useContext, useState, useEffect } from "react"
+import React, { useContext, useEffect } from "react"
 import { FriendContext } from "./FriendsProvider";
 import { UserContext } from "../users/UserProvider";
-import { ScoreContext } from "../scores/ScoresProvider";
 import { FriendsList } from "./FriendsList";
-import Scores from "../scores/ScoresUser";
 import "./Friends.css"
 
-export const FriendForm = (props) => {
+export const FriendForm = () => {
     // Use the required context providers for data
-    const { friends, getFriends } = useContext(FriendContext)
-    const { users, getUsers } = useContext(UserContext)
-    const { scores, getScores } = useContext(ScoreContext)
-
-    const currentUserId = parseInt(localStorage.getItem("current_user"))
-    const filteredFriends = friends.filter(friend => friend.userId === currentUserId) 
-
+    const { getFriends } = useContext(FriendContext)
+    const { getUsers } = useContext(UserContext)
 
     // Component state
-    const [friend, setFriend] = useState({})
-
     
     useEffect(() => {
         getFriends().then(getUsers)
     }, [])
 
-    return (
-            <form className="friendForm">
-            
 
-            
+    // jsx for friends form
+    return (
+                       
             <div className="friend__cards">
-                <fieldset className="friend card">
-                    <h3 className="friends_header">Friends</h3>
-                    <FriendsList/>
-                </fieldset>
+
+                <h3 className="friends_header">Friends</h3>
+
+                <FriendsList/>
+
             </div>
             
-            </form>
     )
 }

@@ -1,27 +1,24 @@
-import React, { useContext, useEffect, useState, useRef} from "react"
+import React, { useContext, useEffect, useRef } from "react"
 import { MessageContext } from "./MessageProvider";
 import { UserContext } from "../users/UserProvider";
 import ContentEditable from 'react-contenteditable'
 import "./Message.css"
 
-export default ({ message, user  }) => {
-    const currentUserId = parseInt(localStorage.getItem("current_user"))
+export default ({ message }) => {
+    // use content to get info from api
     const {getUsers, users } = useContext(UserContext)
-    const {getMessages, messages, deleteMessage, editMessage } = useContext(MessageContext)
-    // const [user, setUser] = useState({})
-    // const [ currentUser, setCurrentUser] = useState({})
-    // const editMode = props.match.params.hasOwnProperty("messageId")
+    const {getMessages, deleteMessage, editMessage } = useContext(MessageContext)
+    
+    // getting current user and current user id
+    const currentUserId = parseInt(localStorage.getItem("current_user"))
     const currentUser = users.find(u => u.id === message.userId) || {}
-    const [input, setInput] = useState('')
 
+    // use ref to get message value
     const messageRef = useRef(null)
-    // console.log(currentUser)
 
-    // const [message, setMessage] = useState({})
-
+    // handles text edit on change and sends to api
     const handleSubmit = (e) => {
 
-        // const fightSelect = parseInt(fightId.current.value)
         editMessage({
                     id: message.id,
                     userId: currentUserId,
@@ -29,69 +26,32 @@ export default ({ message, user  }) => {
                     timestamp: new Date(),
                    
                 })
-            // const messageRefParsed = parseInt(messageRef.current.value)
-
-            console.log(input, messageRef.current.textContent)
-
-        // e.preventDefault()
     }
 
     useEffect(() => {
         getUsers().then(getMessages)
     }, [])
 
-    // useEffect(() => {
-    //     setUser(users)
-    //     // console.log(users.find(u => u.id === currentUserId))
-    // }, [users])
-
-    // useEffect(() => {
-    //     // const currentUser = users.find(u => u.id === currentUserId)
-    //     setCurrentUser(currentUser)
-    //     console.log(currentUser)
-    // }, [users])
-
-    // useEffect(() => {
-    //     setMessage(messages)
-    // }, [messages])
-
-    // function constructor() {
-    // super()
-    // this.contentEditable = React.createRef();
-    // this.state = {html: "<b>Hello <i>World</i></b>"};
-    // };
-
+    // jsx that renders individual messages and its components
     return (   
+
         <section key={message.id} className="message">
-            {/* <p>{currentUserId === message.userId ? users.map(u=> user.id === message.userId ? user.name : "") : ""}</p> */}
-            {/* <p>{message.userId === currentUserId ? users.find(u => u.id === currentUserId ? u.name: "") : ""} </p> */}
+
             <p>{currentUser.name} </p>
-            {/* <p>{message.content}</p> */}
 
             {currentUserId === message.userId ?
-            <ContentEditable innerRef={messageRef} onChange={(e) => handleSubmit(e)} value={input} id={message.id} html={message.content} /> : message.content}
+            <ContentEditable innerRef={messageRef} onChange={(e) => handleSubmit(e)} id={message.id} html={message.content} /> : message.content}
 
             <p>{message.timestamp.toLocaleString()}</p>
-            {currentUserId === message.userId ? 
-            <button id={message.id} className="del btn"
+
+            {currentUserId === message.userId 
+            ? <button id={message.id} className="del btn"
                     onClick={
                         () => {
                                 deleteMessage(message.id)                                   
-            }}>Delete</button>
+              }}>Delete</button>
             : ""}
-            {currentUserId === message.userId ? 
-            <button id={message.id} className="del btn"
-                    onClick={
-                        () => {
-                                editMessage({
-                                id: message.id,
-                                userId: currentUserId,
-                                content: message.content,
-                                timestamp: new Date() 
-                                     
-                })                                   
-            }}>Edit</button>
-            : ""}
+            
         </section>
     )
 

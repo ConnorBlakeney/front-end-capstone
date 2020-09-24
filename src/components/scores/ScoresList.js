@@ -80,12 +80,13 @@ export const ScoresList = () => {
                     <input id="roundThreeBlue" className="round__three blue" placeholder="Round 3 Blue" type="number"></input>
                     <input id="roundFourBlue"className="round__four blue" placeholder="Round 4 Blue" type="number"></input>
                     <input id="roundFiveBlue" className="round__five blue" placeholder="Round 5 Blue" type="number"></input>
-                    <button onClick={
-                        handleSubmit
-                    }>Save Scores</button>
                 </form>
 
             </section>
+
+            <button onClick={
+                handleSubmit
+            }>Save Scores</button>
 
         </div>
        

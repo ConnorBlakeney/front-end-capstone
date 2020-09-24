@@ -15,7 +15,7 @@ export const HomeForm = () => {
 
                 <fieldset className="form__upcoming card">
 
-                    <h3>Upcoming Main Card Fights</h3>
+                    <h3 className="upcoming">Upcoming Main Card Fights</h3>
 
                     <UpcomingList/>
 
@@ -23,7 +23,7 @@ export const HomeForm = () => {
 
                 <fieldset className="form__previous card">
 
-                    <h3>Previous Main Card Fights</h3>
+                    <h3 className="recent">Previous Main Card Fights</h3>
 
                     <RecentList/>
 

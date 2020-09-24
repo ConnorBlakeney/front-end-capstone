@@ -22,7 +22,7 @@ export const HomeDetail = (props) => {
     // jsx for home page links, shows fight stats per fight
     return (
 
-        <section className="fight__stats card">
+        <section className="fight__stats">
 
             <h3>Fight Stats</h3>
 

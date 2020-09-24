@@ -17,6 +17,7 @@ export const NavBar = () => {
             <li className="navbar__item">
                 <Link className="navbar__link" to="/logout">Logout</Link>
             </li>
+            <div id="indicator"></div>
         </nav>
     )
 }

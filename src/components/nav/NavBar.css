@@ -2,38 +2,8 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+    background-color: #F2F1E8;
 }
-
-/* .navbar__item {
-    flex-basis: 20%;
-    list-style-type: none;
-    justify-content: space-evenly;
-    font-size: 10px;
-} */
-
-/* html, body
-{
-    height: 100%;
-} */
-
-/* body
-{
-    margin: 0;
-    background-color: #292929;
-    overflow: hidden;
-} */
-
-/* nav
-{
-     position: absolute;
-    top: 50%;
-    right: 0;
-    left: 0;
-    width: 319px;
-    display: table; 
-    margin: 0 auto; 
-    transform: translateY(-50%);
-} */
 
 nav li
 {
@@ -52,6 +22,7 @@ nav li
 a:link, a:visited
 {
     text-decoration: none;
+    color: #404040
 }
 
 nav li:before, nav li:after
@@ -125,15 +96,22 @@ nav li:nth-child(4):after
     left: 5%;
     bottom: 0;
     width: 30px;
-    height: 3px;
+    height: 1px;
     background-color: #fff;
     border-radius: 5px;
     transition: 0.2s ease left;
+    display: block;
+    position: fixed;
+    padding: 2px 20px;
+    margin: 20px;
+    color: #fff;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+    z-index: 125;
 }
 
-nav li:hover
+a:hover
 {
-    color: #fff;
+    color: #0D698B;
 }
 
 nav li:hover:before, nav li:hover:after
@@ -143,6 +121,7 @@ nav li:hover:before, nav li:hover:after
 
 nav li:nth-child(1):hover ~ #indicator
 {
+    left: 10%;
     background: linear-gradient(130deg, yellow, red);
 }
 
@@ -154,29 +133,12 @@ nav li:nth-child(2):hover ~ #indicator
 
 nav li:nth-child(3):hover ~ #indicator
 {
-    left: 70%;
+    left: 60%;
     background: linear-gradient(130deg, purple, palevioletred);
 }
 
 nav li:nth-child(4):hover ~ #indicator
 {
-    left: 70%;
+    left: 85%;
     background: linear-gradient(130deg, goldenrod, hotpink);
 }
-
-/* #ytd-url {
-  display: block;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  padding: 10px 14px;
-  margin: 20px;
-  color: #fff;
-  font-family: Arial;
-  font-size: 14px;
-  text-decoration: none;
-  background-color: #000;
-  border-radius: 4px;
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
-  z-index: 125;
-} */

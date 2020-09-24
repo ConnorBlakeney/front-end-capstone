@@ -8,7 +8,15 @@
     border: 1px solid black;
     padding: 2rem;
     margin: auto; 
-    width: 100%;
+    width: 30%;
+    height: 50vh;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+    border-radius: 25%;
+    background-color: #F2F1E8;
+}
+
+.upcoming, .recent {
+    text-decoration: underline;
 }
 
 h3 {
@@ -27,4 +35,14 @@ span {
 
 .fight__stats {
     text-align: center;
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+.home__form__title {
+    margin: 3rem;
+}
+
+.fight__name {
+    padding: 0.5rem;
 }

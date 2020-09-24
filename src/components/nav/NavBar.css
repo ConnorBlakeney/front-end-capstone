@@ -25,14 +25,14 @@ a:link, a:visited
     color: #404040
 }
 
-nav li:before, nav li:after
+/* nav li:before, nav li:after
 {
     content: "";
     position: absolute;
     border-radius: 50%;
     transform: scale(0);
     transition: 0.2s ease transform;
-}
+} */
 
 nav li:before
 {

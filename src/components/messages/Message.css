@@ -9,6 +9,11 @@
     border-radius: 5%;
 }
 
+.message__both > span {
+   display: flex;
+   flex-direction: column; 
+}
+
 .message__form {
     display: flex;   
 }
@@ -36,9 +41,11 @@ input,
 select {
     
 }
+
 /* .message__top {
     align-self: center;
 } */
 /* .message__form {
     padding: 2rem;
 } */
+

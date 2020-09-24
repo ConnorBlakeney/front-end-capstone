@@ -7,20 +7,13 @@ export const UserForm = (props) => {
     // jsx that renders users to DOM
     return (
 
-        <form className="userForm">
-
             <div className="user__cards">
 
-                <fieldset className="user card">
+                <h3 className="users_header">Users</h3>
 
-                    <h3 className="users_header">Users</h3>
-
-                    <UserList {...props}/> 
-
-                </fieldset>
+                <UserList {...props}/> 
 
             </div>
             
-        </form>
     )
 }

@@ -4,56 +4,42 @@ import { UserContext } from "../users/UserProvider";
 import Friends from "./Friends"
 import "./Friends.css"
 
-export const FriendsList = props => {
-    const { getFriends, friends } = useContext(FriendContext)
-    const { getUsers, users } = useContext(UserContext)
+export const FriendsList = () => {
 
-    // const [filteredFriends, setFiltered] = useState([])
+    // use context to grab api info
+    const { getFriends, friends } = useContext(FriendContext)
+    const { getUsers } = useContext(UserContext)
+
+    // get current user id
     const currentUserId = parseInt(localStorage.getItem("current_user"))
-    // const friendId = 
     const filteredFriends = friends.filter(friend => friend.userId === currentUserId) 
 
-    // Initialization effect hook -> Go get fight data
-    // const [friend, setFriend] = useState({})
-    const [user, setUser] = useState({})
-    // const [currentUser, setCurrentUser] = useState({})
+    // set user state
+    const [ user ] = useState({})
 
-    // console.log(filteredFriends)
 
     useEffect(() => {
         getFriends().then(getUsers)
     }, [])
 
-
-    // useEffect(() => {
-    //     setUser(users)
-    //     // console.log(users.map(user => user.id === friend.id ? user.name: ""))
-    // }, [users])
-
-    // useEffect(() => {
-    //     setFriend(friends)
-    // }, [friends])
-
+    // renders friends component to DOM
     return (
-        
-        <div>
-            <div className="friends">
-                { 
-                    filteredFriends.map(friend => {
-                       
-                        return (
-                            <div key={friend.userFriendId}>
-                                <Friends friend={friend} user={user}/>
-                                
-                            </div>
-                        )
-                    })
-                }
-            </div>
-    
-         
+                
+        <div className="friends">
+
+            { 
+                filteredFriends.map(friend => {
+                    
+                    return (
+                        
+                        <Friends friend={friend} user={user}/>
+                            
+                    )
+                })
+            }
+
         </div>
+         
     )
 }
 
-    // {users.map(user => user.id === friend.id ? user.name: "")}

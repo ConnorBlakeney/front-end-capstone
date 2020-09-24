@@ -2,108 +2,181 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-    border: 1px solid black;
 }
 
-.navbar__item {
+/* .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
     justify-content: space-evenly;
     font-size: 10px;
-    color: #fff;
-    /* font-size: 50px; */
-    text-transform: uppercase;
-    opacity: 0;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
---primary-color: #D96AA7;
---secondary-color: #422C73;
---complimentary-color: #88BFB5;
---contrast-color: #F2E527;
---light-color: #D2A9D9;
-}
-
-.container {
-  background: #191919;
-  min-height: 100vh;
-  font-family: Montserrat, sans-serif;
-}
-
-nav a {
-    font-size: 40px;
-    color: #fff;
-    text-decoration: none;
-    padding: 20px;
-    text-align: center;
-}
-
-nav {
-    position: fixed;
-    left: 0;
-    z-index: 50;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    height: 100vh;
-    background: var(--secondary-color);
-}
-
-section {
-    position: absolute;
-    top: 0;
-    height: 100vh;
-    width: 0;
-    opacity: 0;
-    transition: all ease-in .5s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} 
-
-/* section h1 {
-    color: #fff;
-    font-size: 50px;
-    text-transform: uppercase;
-    opacity: 0;
 } */
 
-/* Styles applied on trigger */
-section:target {
-    opacity: 1;
-    position: absolute;
-    left: 0;
-    width: 100%;
+/* html, body
+{
     height: 100%;
-    z-index: 10;
+} */
+
+/* body
+{
+    margin: 0;
+    background-color: #292929;
+    overflow: hidden;
+} */
+
+/* nav
+{
+     position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    width: 319px;
+    display: table; 
+    margin: 0 auto; 
+    transform: translateY(-50%);
+} */
+
+nav li
+{
+    position: relative;
+    width: 33.333%;
+    display: table-cell;
+    text-align: center;
+    color: #949494;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: 0.2s ease color;
 }
 
-section:target h1 {
-    opacity: 0;
-    animation: 2s fadeIn forwards .5s;
+a:link, a:visited
+{
+    text-decoration: none;
 }
 
-#first {
-  background:var(--primary-color);
-}
-#second {
-    background: var(--complimentary-color);
-}
-
-#third {
-    background: var(--contrast-color);
+nav li:before, nav li:after
+{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 0.2s ease transform;
 }
 
-#fourth {
-    background: var(--light-color);
+nav li:before
+{
+    top: 0;
+    left: 10px;
+    width: 6px;
+    height: 6px;
 }
 
-@keyframes fadeIn {
-    100% { opacity:1 }
+nav li:after
+{
+    top: 5px;
+    left: 18px;
+    width: 4px;
+    height: 4px
 }
+
+nav li:nth-child(1):before
+{
+    background-color: yellow;
+}
+
+nav li:nth-child(1):after
+{
+    background-color: red;
+}
+
+nav li:nth-child(2):before
+{
+    background-color: #00e2ff;
+}
+
+nav li:nth-child(2):after
+{
+    background-color: #89ff00;
+}
+
+nav li:nth-child(3):before
+{
+    background-color: purple;
+}
+
+nav li:nth-child(3):after
+{
+    background-color: palevioletred;
+}
+
+nav li:nth-child(4):before
+{
+    background-color: goldenrod;
+}
+
+nav li:nth-child(4):after
+{
+    background-color: hotpink;
+}
+
+#indicator
+{
+    position: absolute;
+    left: 5%;
+    bottom: 0;
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: 0.2s ease left;
+}
+
+nav li:hover
+{
+    color: #fff;
+}
+
+nav li:hover:before, nav li:hover:after
+{
+    transform: scale(1);
+}
+
+nav li:nth-child(1):hover ~ #indicator
+{
+    background: linear-gradient(130deg, yellow, red);
+}
+
+nav li:nth-child(2):hover ~ #indicator
+{
+    left: 34%;
+    background: linear-gradient(130deg, #00e2ff, #89ff00);
+}
+
+nav li:nth-child(3):hover ~ #indicator
+{
+    left: 70%;
+    background: linear-gradient(130deg, purple, palevioletred);
+}
+
+nav li:nth-child(4):hover ~ #indicator
+{
+    left: 70%;
+    background: linear-gradient(130deg, goldenrod, hotpink);
+}
+
+/* #ytd-url {
+  display: block;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  padding: 10px 14px;
+  margin: 20px;
+  color: #fff;
+  font-family: Arial;
+  font-size: 14px;
+  text-decoration: none;
+  background-color: #000;
+  border-radius: 4px;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+  z-index: 125;
+} */

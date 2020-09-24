@@ -112,7 +112,9 @@ nav li:nth-child(4):after
 a:hover
 {
     color: #0D698B;
+    transform: scale(1.07)
 }
+
 
 nav li:hover:before, nav li:hover:after
 {

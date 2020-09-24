@@ -94,15 +94,15 @@ nav li:nth-child(4):after
 {
     position: absolute;
     left: 5%;
-    bottom: 0;
+    top: 3%;
     width: 30px;
     height: 1px;
-    background-color: #fff;
+    color: #949494;
     border-radius: 5px;
     transition: 0.2s ease left;
     display: block;
     position: fixed;
-    padding: 2px 20px;
+    padding: 2px 3%;
     margin: 20px;
     color: #fff;
     box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
@@ -121,24 +121,24 @@ nav li:hover:before, nav li:hover:after
 
 nav li:nth-child(1):hover ~ #indicator
 {
-    left: 10%;
+    left: 7%;
     background: linear-gradient(130deg, yellow, red);
 }
 
 nav li:nth-child(2):hover ~ #indicator
 {
-    left: 34%;
+    left: 31.5%;
     background: linear-gradient(130deg, #00e2ff, #89ff00);
 }
 
 nav li:nth-child(3):hover ~ #indicator
 {
-    left: 60%;
+    left: 56%;
     background: linear-gradient(130deg, purple, palevioletred);
 }
 
 nav li:nth-child(4):hover ~ #indicator
 {
-    left: 85%;
+    left: 81.5%;
     background: linear-gradient(130deg, goldenrod, hotpink);
 }

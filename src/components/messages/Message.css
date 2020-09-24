@@ -33,6 +33,11 @@ h2, h3 {
     text-align: center;
 }
 
+button,
+input,
+select {
+    
+}
 /* .message__top {
     align-self: center;
 } */

@@ -64,26 +64,26 @@ export const ScoresList = () => {
 
             <section className="card__form">    
 
-                    <form className="round__form red">
-                        <input id="roundOneRed" className="round__one red" placeholder="Round 1 Red" type="number"></input>
-                        <input id="roundTwoRed" className="round__two red" placeholder="Round 2 Red" type="number"></input>
-                        <input id="roundThreeRed" className="round__three red" placeholder="Round 3 Red" type="number"></input>
-                        <input id="roundFourRed" className="round__four red" placeholder="Round 4 Red" type="number"></input>
-                        <input id="roundFiveRed" className="round__five red" placeholder="Round 5 Red" type="number"></input>
-                    </form>
+                <form className="round__form red">
+                    <input id="roundOneRed" className="round__one red" placeholder="Round 1 Red" type="number"></input>
+                    <input id="roundTwoRed" className="round__two red" placeholder="Round 2 Red" type="number"></input>
+                    <input id="roundThreeRed" className="round__three red" placeholder="Round 3 Red" type="number"></input>
+                    <input id="roundFourRed" className="round__four red" placeholder="Round 4 Red" type="number"></input>
+                    <input id="roundFiveRed" className="round__five red" placeholder="Round 5 Red" type="number"></input>
+                </form>
 
-                    <form className="round__form red">
-                        <input id="roundOneBlue" className="round__one blue" placeholder="Round 1 Blue" type="number"></input>
-                        <input id="roundTwoBlue" className="round__two blue" placeholder="Round 2 Blue" type="number"></input>
-                        <input id="roundThreeBlue" className="round__three blue" placeholder="Round 3 Blue" type="number"></input>
-                        <input id="roundFourBlue"className="round__four blue" placeholder="Round 4 Blue" type="number"></input>
-                        <input id="roundFiveBlue" className="round__five blue" placeholder="Round 5 Blue" type="number"></input>
-                        <button onClick={
-                            handleSubmit
-                        }>Save Scores</button>
-                    </form>
+                <form className="round__form red">
+                    <input id="roundOneBlue" className="round__one blue" placeholder="Round 1 Blue" type="number"></input>
+                    <input id="roundTwoBlue" className="round__two blue" placeholder="Round 2 Blue" type="number"></input>
+                    <input id="roundThreeBlue" className="round__three blue" placeholder="Round 3 Blue" type="number"></input>
+                    <input id="roundFourBlue"className="round__four blue" placeholder="Round 4 Blue" type="number"></input>
+                    <input id="roundFiveBlue" className="round__five blue" placeholder="Round 5 Blue" type="number"></input>
+                    <button onClick={
+                        handleSubmit
+                    }>Save Scores</button>
+                </form>
 
-                </section>
+            </section>
 
         </div>
        

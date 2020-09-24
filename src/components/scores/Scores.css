@@ -1,26 +1,20 @@
 .score__card {
-    position: relative;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 120px;
-    height: 200px;
-    box-shadow: 0px 5px 17px -7px rbga(0, 0, 0, 0.75);
     display: flex;
-    margin: 3rem;
+    margin: 4rem;
 }
 
 .score__card:hover {
-    transform: scale(1.07)
+    /* transform: scale(1.07) */
 }
 
 .score__card > h4 {
-    position: absolute;
+    /* position: absolute;
     bottom: 20px;
     left: 20px;
     color: white;
-    width: 2rem;
+    width: 2rem; */
 }
+
 
 /* .round__form {
     display: flex;
@@ -42,7 +36,7 @@
 .card__form {
     display: flex;
     justify-content: center;
-    margin: 1rem;
+    margin: 3rem;
     
 }
 

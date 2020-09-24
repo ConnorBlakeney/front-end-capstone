@@ -1,21 +1,21 @@
-import React from "react"
-import "./Scores.css"
-import { ScoresList } from "./ScoresList";
+// import React from "react"
+// import "./Scores.css"
+// import { ScoresList } from "./ScoresList";
 
 
-export default () => {
+// export default () => {
 
-    return (  
+//     return (  
     
-        // rendering scores form
+//         // rendering scores form
         
-        <section className="scores__form">
+//         <section className="scores__form">
             
-            <ScoresList />
+//             <ScoresList />
             
-        </section>
-    )
+//         </section>
+//     )
 
 
-}
+// }
            

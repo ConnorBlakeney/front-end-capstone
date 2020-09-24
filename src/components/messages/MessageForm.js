@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { MessageContext } from "./MessageProvider"
 import { MessageList } from "./MessageList"
 import { UserContext } from "../users/UserProvider"
+import { ScoresList } from "../scores/ScoresList";
 import "./Message.css"
 
 
@@ -41,25 +42,31 @@ export const MessageForm = ({ props }) => {
     return (
 
         // jsx for messages
+    <>
+        <h2>Live Scores and Chat</h2>
+
         <div className="message__form">
 
-            <form className="message__top">
 
+            <ScoresList />
+
+            <div className="message__both">
+
+            <span className="chat__submit">
                 <input value={input} onChange={(e) => setInput(e.target.value)} className="message__input" placeholder={"What do you think?"}></input>
 
-                <button id={currentUserId} onClick={
+                <button id={currentUserId} className="submit btn" onClick={
                         handleSubmit
                         
                         } >Submit</button>
 
-            </form>
 
-            <div className="message__bottom">
 
-               <MessageList {...props} />
-                
+                <MessageList {...props} />
+            </span>        
+
             </div>
-            
         </div>
+    </>
     )
 }

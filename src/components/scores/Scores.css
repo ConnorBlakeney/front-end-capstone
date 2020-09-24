@@ -22,32 +22,28 @@
     width: 2rem;
 }
 
-.round__form {
+/* .round__form {
     display: flex;
     flex-direction: column;
     width: 8rem;
     margin: 1rem;
-}
+} */
 
 .blue > input {
     margin: 5px;
 }
 
-.scores__form {
+/* .scores__form {
     height: 50vh;
     width: 100%; 
     margin-bottom: 5rem;
-}
+} */
 
 .card__form {
     display: flex;
     justify-content: center;
     margin: 1rem;
     
-}
-
-.live__scores {
-    margin: 5rem auto;
 }
 
 .red, .blue {

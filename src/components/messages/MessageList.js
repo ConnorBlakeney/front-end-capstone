@@ -5,7 +5,7 @@ import Message from "../messages/Message";
 import { Collapse, Button } from "reactstrap";
 import "./Message.css"
 
-export const MessageList = ({ history, props }) => {
+export const MessageList = ({ props }) => {
     const { getUsers, users } = useContext(UserContext)
     const { getMessages, messages } = useContext(MessageContext)
 

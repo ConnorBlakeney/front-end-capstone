@@ -10,7 +10,6 @@ import { MessageProvider } from "./messages/MessageProvider";
 import { UserForm } from "./users/UserForm";
 import { MessageForm } from "./messages/MessageForm";
 import { ScoreProvider } from "./scores/ScoresProvider";
-import ScoresForm from "./scores/ScoresForm";
 import AllScoresForm from "./scores/AllScoresForm";
 
 export const ApplicationViews = (props) => {
@@ -58,7 +57,6 @@ export const ApplicationViews = (props) => {
                                 (props) => { 
                                     return (
                                     <>
-                                        <ScoresForm />
                                         <MessageForm history={props.history}/>
                                     </> 
                                     )

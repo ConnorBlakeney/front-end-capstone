@@ -3,7 +3,6 @@ import { UserContext } from "../users/UserProvider"
 import { ScoreContext } from "./ScoresProvider";
 import { FightContext } from "../fights/FightProvider";
 import { FriendContext } from "../friends/FriendsProvider";
-import { Form } from 'reactstrap';
 import "./Scores.css"
 
 export const ScoresList = () => {
@@ -52,9 +51,7 @@ export const ScoresList = () => {
 
     return (
 
-        <div key={score.id} className="live__scores card">
-
-            <h2>Live Scores and Chat</h2>
+        <div key={score.id} className="live__scores live__card">
             
             <select defaultValue="" name="fight__select" ref={fightId} id="" className="form__control">
                 <option value="0">Select a fight</option>

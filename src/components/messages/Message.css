@@ -1,5 +1,36 @@
 .message {
     border: 1px solid black;
+    text-align: center;
+}
+
+.message__both {
+    border: 1px solid black;
+    margin: 2rem 5rem;  
+    width: 30%;
+    background-color: #F2F1E8;
+}
+
+.message__form {
+    display: flex;
+}
+
+.live__card {
+    padding: 3rem;
+    margin: auto; 
+    width: 25%;
+    height: 40vh;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+    border-radius: 25%;
+    background-color: #F2F1E8;
+}
+
+.live__scores {
+    margin: 5rem auto;
+}
+
+
+h2, h3 {
+    text-align: center;
 }
 
 /* .message__top {

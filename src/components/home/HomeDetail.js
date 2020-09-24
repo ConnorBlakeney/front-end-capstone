@@ -24,7 +24,7 @@ export const HomeDetail = (props) => {
 
         <section className="fight__stats">
 
-            <h3>Fight Stats</h3>
+            <h2>Fight Stats</h2>
 
             <div>{fight.R_fighter}   <span>vs</span>    {fight.B_fighter}</div>
 

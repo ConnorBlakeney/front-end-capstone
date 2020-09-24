@@ -52,7 +52,7 @@ export const ScoresList = () => {
 
     return (
 
-        <div key={score.id} className="live__scores">
+        <div key={score.id} className="live__scores card">
 
             <h2>Live Scores and Chat</h2>
             

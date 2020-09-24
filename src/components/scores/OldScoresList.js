@@ -56,7 +56,10 @@ export const OldScoresList = ({ props }) => {
     // also calls and renders filteredScores state variable set above
     return (
     
-    <div className="scores" key={score.id}> 
+    <div className="scores card" key={score.id}> 
+
+        <h3>Your Scorecard</h3>
+
         <select onChange={(e) => { handleSubmit(e) }} defaultValue="" name="fight" ref={fightId} id="" className="form__control">
                 <option value="0">Select a fight</option>
                 {fights.map((e) => (
@@ -68,7 +71,6 @@ export const OldScoresList = ({ props }) => {
                 ))}
         </select>
 
-        <h3>Your Scorecard</h3>
        
         <div id="filtered__scores">
                 { 

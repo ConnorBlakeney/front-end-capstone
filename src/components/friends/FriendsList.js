@@ -32,7 +32,7 @@ export const FriendsList = () => {
                     
                     return (
                         
-                        <Friends friend={friend} user={user}/>
+                        <Friends key={friend.id} friend={friend} user={user}/>
                             
                     )
                 })

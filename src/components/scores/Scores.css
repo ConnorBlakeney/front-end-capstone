@@ -34,15 +34,9 @@
 }
 
 .scores__form {
-    border: 1px solid black;
     height: 50vh;
-    width: 100%;   
-}
-
-.scores {
-    border: 1px solid black;
-    height: 50vh;
-    width: 100%;   
+    width: 100%; 
+    margin-bottom: 5rem;
 }
 
 .card__form {
@@ -52,9 +46,23 @@
     
 }
 
+.live__scores {
+    margin: 5rem auto;
+}
+
 .red, .blue {
     margin: 2px;
 }
+
+.all__scores {
+    display: flex;
+    margin: 5rem auto;
+}
+
+.scores {
+    width: 25%;
+}
+
 
 /* #root {
     display: flex;

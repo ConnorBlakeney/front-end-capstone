@@ -75,8 +75,9 @@ export const AverageScoresList = () => {
     // all user scores for particular fight
     return (
 
-    <div className="scores" key={score.userId}> 
+    <div className="scores card" key={score.userId}> 
 
+        <h3>Average User Scores</h3>
         <select onChange={(e) => { handleSubmit(e) }} defaultValue="" name="fight" ref={fightId} id="" className="form__control">
                 <option value="0">Select a fight</option>
                 {fights.map((e) => (
@@ -88,7 +89,6 @@ export const AverageScoresList = () => {
                 ))}
         </select>
 
-        <h3>Average User Scores</h3>
         
         <div id="filtered__average__scores">
         

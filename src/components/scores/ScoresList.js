@@ -53,6 +53,8 @@ export const ScoresList = () => {
 
         <div key={score.id} className="live__scores live__card">
             
+            <h3>Live Scores</h3>
+
             <select defaultValue="" name="fight__select" ref={fightId} id="" className="form__control">
                 <option value="0">Select a fight</option>
                 {fights.map((e) => (

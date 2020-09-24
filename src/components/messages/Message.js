@@ -36,6 +36,7 @@ export default ({ message }) => {
     return (   
 
         <section key={message.id} className="message">
+            <hr/>
 
             <p>{currentUser.name} </p>
 
@@ -51,7 +52,6 @@ export default ({ message }) => {
                                 deleteMessage(message.id)                                   
               }}>Delete</button>
             : ""}
-            
         </section>
     )
 

@@ -42,15 +42,14 @@ export const MessageForm = ({ props }) => {
     return (
 
         // jsx for messages
-    <>
-        <h2>Live Scores and Chat</h2>
 
         <div className="message__form">
-
 
             <ScoresList />
 
             <div className="message__both">
+
+            <h3>Chat</h3>
 
             <span className="chat__submit">
                 <input value={input} onChange={(e) => setInput(e.target.value)} className="message__input" placeholder={"What do you think?"}></input>
@@ -67,6 +66,5 @@ export const MessageForm = ({ props }) => {
 
             </div>
         </div>
-    </>
     )
 }

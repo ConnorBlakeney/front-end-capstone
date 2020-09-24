@@ -28,6 +28,7 @@ export const MessageList = ({ props }) => {
         
         // <Collapse isOpen={isOpen}>
             <div className="message__list">
+
                 {/* <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>Toggle</Button> */}
                     {
                         messages.map(message => {

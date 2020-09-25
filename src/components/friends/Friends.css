@@ -13,7 +13,6 @@
 .friend__cards {
     border-radius: 5%;
     background-color: #F2F1E8;
-
 }
 
 select {
@@ -34,7 +33,7 @@ select::-ms-expand {
 .form__control {
   position: relative;
   display: flex;
-  width: 20em;
+  width: 22em;
   background: #0D698B;
   overflow: hidden;
   border-radius: .25em;

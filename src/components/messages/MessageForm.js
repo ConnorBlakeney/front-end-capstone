@@ -38,6 +38,10 @@ export const MessageForm = ({ props }) => {
         setInput("")
 
         e.preventDefault()
+
+        return (
+            <div>Sent!</div>
+        )
     }
 
     return (

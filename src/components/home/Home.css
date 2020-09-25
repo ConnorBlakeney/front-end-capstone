@@ -23,6 +23,10 @@ h3 {
     flex-direction: column;
 }
 
+.fight__stats > h2 {
+    margin: 2rem;
+}
+
 h2, h3 {
     text-align: center;
 }

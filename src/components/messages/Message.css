@@ -74,6 +74,10 @@ button {
     border-radius: 5%;
 }
 
+.del__btn {
+    width: 80%;
+}
+
 button:focus {
  outline: none;
 }

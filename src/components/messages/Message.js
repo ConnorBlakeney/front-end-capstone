@@ -38,11 +38,10 @@ export default ({ message }) => {
         <section key={message.id} className="message">
             {/* <hr/> */}
 
-            <div className="name__message">{currentUser.name } :{" "}
+            <div className="name__message">{currentUser.name }:<span></span>
 
             {currentUserId === message.userId ? 
             <ContentEditable innerRef={messageRef} onChange={(e) => handleSubmit(e)} id={message.id} html={message.content}/> : message.content}
-
             </div>
             <p>Date: {message.timestamp}</p>
 

@@ -1,8 +1,14 @@
+
+
 .user__name {
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .user__cards {
     border-radius: 5%;
     background-color: #F2F1E8;
+    height: 20vh;
+    overflow-y: auto;
 }

@@ -4,15 +4,11 @@
     flex-direction: column;
 }
 
-.user__name {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-}
-
 .friend__cards {
     border-radius: 5%;
     background-color: #F2F1E8;
+    overflow-y: auto;
+    height: 20vh;
 }
 
 select {

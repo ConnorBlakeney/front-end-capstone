@@ -100,7 +100,7 @@ export const FriendScoresList = ({ props }) => {
         </select>
     
  
-        <div id="filtered__friend__scores">
+        <div className="filtered__scores friend">
 
                 { 
                     filteredScores && filteredFriendScores

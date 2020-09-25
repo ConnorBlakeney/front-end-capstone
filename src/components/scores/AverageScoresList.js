@@ -92,9 +92,9 @@ export const AverageScoresList = () => {
                     
                 ))}
         </select>
-
+        <span></span>
         
-        <div id="filtered__average__scores">
+        <div className="filtered__scores">
         
                 {
                     filteredScores

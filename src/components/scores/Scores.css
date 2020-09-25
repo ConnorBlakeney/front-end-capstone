@@ -1,6 +1,11 @@
 .score__card {
     display: flex;
-    margin: 4rem;
+    margin: 2rem 4rem;
+}
+
+.filtered__scores {
+    font-weight: bold;
+    font-family: "Helvetica", Arial, sans-serif;
 }
 
 .score__card:hover {

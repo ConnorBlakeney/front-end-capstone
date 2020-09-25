@@ -48,13 +48,6 @@ span {
     text-align: center;
 }
 
-#filtered__scores {
-    /* font-size: large; */
-    font-weight: bold;
-    font-family: "Helvetica", Arial, sans-serif;
-    /* color: white; */
-}
-
 .home__form__title {
     margin: 3rem;
 }

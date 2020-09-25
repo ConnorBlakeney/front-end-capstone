@@ -71,8 +71,9 @@ export const OldScoresList = ({ props }) => {
                 ))}
         </select>
 
-       
-        <div id="filtered__scores">
+        <span></span>       
+
+        <div className="filtered__scores">
                 { 
                     filteredScores
                 }

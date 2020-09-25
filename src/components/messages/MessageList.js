@@ -35,7 +35,7 @@ export const MessageList = ({ props }) => {
 
                             return <Message key={message.id} message={message} user={user} {...props}/>
 
-                        }).reverse()
+                        })
                         
                     }
             </div>

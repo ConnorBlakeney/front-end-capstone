@@ -1,11 +1,72 @@
 .friend__name {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.user__name {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .friend__cards {
     border: 1px solid black;
 }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  background: #0D698B;
+  background-image: none;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select */
+.form__control {
+  position: relative;
+  display: flex;
+  width: 20em;
+  background: #0D698B;
+  overflow: hidden;
+  border-radius: .25em;
+}
+select {
+  flex: 1;
+  padding: 0 .5em;
+  color: #F2F1E8;
+  cursor: pointer;
+  margin: 1rem;
+}
+/* Arrow */
+.form__control::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #F2F1E8;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+/* Transition */
+.form__control:hover::after {
+  color: #f39c12;
+}
+
+.add, .del {
+    width: 10%;
+    margin: 0 auto;
+}
 
 
 

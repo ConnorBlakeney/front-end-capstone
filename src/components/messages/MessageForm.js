@@ -25,13 +25,14 @@ export const MessageForm = ({ props }) => {
     // reset state to empty string
     const [input, setInput] = useState('')
 
+    const date = new Date()
     // on click event, adds message on submit
     const handleSubmit = (e) => {
 
         addMessage({
                 userId: currentUserId,
                 content: input,
-                timestamp: new Date()
+                timestamp: date.toLocaleString()
             })
 
         setInput("")
@@ -51,7 +52,10 @@ export const MessageForm = ({ props }) => {
 
             <h3>Chat</h3>
 
-            <span className="chat__submit">
+                <MessageList {...props} />
+
+            <div className="chat__submit">
+
                 <input value={input} onChange={(e) => setInput(e.target.value)} className="message__input" placeholder={"What do you think?"}></input>
 
                 <button id={currentUserId} className="submit btn" onClick={
@@ -61,8 +65,7 @@ export const MessageForm = ({ props }) => {
 
 
 
-                <MessageList {...props} />
-            </span>        
+            </div>        
 
             </div>
         </div>

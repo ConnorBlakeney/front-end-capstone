@@ -1,11 +1,12 @@
 .message {
     text-align: center;
+    background-color: #F2F1E8; 
+    border-radius: 5%;
+    margin: 1rem;
 }
 
 .message__both {
-    margin: 4rem auto;  
-    width: 30%;
-    background-color: #F2F1E8; 
+    margin: 2rem auto;  
     border-radius: 5%;
 }
 
@@ -16,6 +17,25 @@
 
 .message__form {
     display: flex;   
+}
+
+.name__message {
+    display: flex;
+    /* margin: auto 0; */
+    justify-content: center;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.chat__submit {
+    margin: 2rem;
+    background-color: #F2F1E8;
+    padding: 2rem 3rem;
+    border-radius: 5%;
+}
+
+input {
+    width: 97%;
 }
 
 .live__card {
@@ -44,13 +64,14 @@ select {
 }
 
 button {
- background-color: none;
- border: 1px solid #0D698B;
- font-size: 18px;
-width: 100%;
- border-radius: 4px;
- transition: .6s;
- overflow: hidden;
+    background-color: none;
+    border: 1px solid #0D698B;
+    font-size: 18px;
+    width: 100%;
+    border-radius: 4px;
+    transition: .6s;
+    overflow: hidden;
+    border-radius: 5%;
 }
 
 button:focus {

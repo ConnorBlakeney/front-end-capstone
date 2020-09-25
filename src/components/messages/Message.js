@@ -36,17 +36,18 @@ export default ({ message }) => {
     return (   
 
         <section key={message.id} className="message">
-            <hr/>
+            {/* <hr/> */}
 
-            <p>{currentUser.name} </p>
+            <div className="name__message">{currentUser.name } :{" "}
 
-            {currentUserId === message.userId ?
-            <ContentEditable innerRef={messageRef} onChange={(e) => handleSubmit(e)} id={message.id} html={message.content} /> : message.content}
+            {currentUserId === message.userId ? 
+            <ContentEditable innerRef={messageRef} onChange={(e) => handleSubmit(e)} id={message.id} html={message.content}/> : message.content}
 
-            <p>{message.timestamp.toLocaleString()}</p>
+            </div>
+            <p>Date: {message.timestamp}</p>
 
             {currentUserId === message.userId 
-            ? <button id={message.id} className="del btn"
+            ? <button id={message.id} className="del__btn"
                     onClick={
                         () => {
                                 deleteMessage(message.id)                                   

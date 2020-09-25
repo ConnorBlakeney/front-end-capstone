@@ -16,6 +16,7 @@ export default ({ message }) => {
     // use ref to get message value
     const messageRef = useRef(null)
 
+    const date = new Date()
     // handles text edit on change and sends to api
     const handleSubmit = (e) => {
 
@@ -23,7 +24,7 @@ export default ({ message }) => {
                     id: message.id,
                     userId: currentUserId,
                     content: messageRef.current.textContent,
-                    timestamp: new Date(),
+                    timestamp: date.toLocaleString(),
                    
                 })
     }

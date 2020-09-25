@@ -3,5 +3,6 @@
 }
 
 .user__cards {
-    border: 1px solid black;
+    border-radius: 5%;
+    background-color: #F2F1E8;
 }

@@ -7,7 +7,7 @@ import "./Scores.css"
 import ScoresUser from "./ScoresUser";
 
 
-export const OldScoresList = ({ props }) => {
+export const UserScoresList = ({ props }) => {
 
     //grabbing context
     const { getUsers } = useContext(UserContext)

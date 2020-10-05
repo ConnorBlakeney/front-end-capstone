@@ -86,7 +86,7 @@ export const ScoresList = () => {
 
             <button onClick={
                 handleSubmit
-            }>Save Scores</button>
+            } >Save Scores</button>
 
         </div>
        

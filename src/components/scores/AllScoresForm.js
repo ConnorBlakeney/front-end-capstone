@@ -2,7 +2,7 @@ import { AverageScoresList } from "./AverageScoresList";
 import React from "react"
 import "./Scores.css"
 import { FriendScoresList } from "./FriendScoresList";
-import { OldScoresList } from "./OldScoresList";
+import { UserScoresList } from "./UserScoresList";
 
 
 
@@ -12,7 +12,7 @@ export default () => {
       
         <section className="all__scores form">
 
-            <OldScoresList/>
+            <UserScoresList/>
             <FriendScoresList/>
             <AverageScoresList/>
             

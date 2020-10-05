@@ -7,7 +7,7 @@
 .card {
     padding: 2rem;
     margin: auto; 
-    width: 30%;
+    width: 32%;
     height: 50vh;
     box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
     border-radius: 25%;
@@ -40,7 +40,7 @@ span {
     padding: 2rem;
     margin: 0 auto; 
     margin-top: 8rem;
-    width: 30%;
+    width: 32%;
     height: 45vh;
     box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
     border-radius: 25%;

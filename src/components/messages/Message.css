@@ -1,5 +1,128 @@
 .message {
-    border: 1px solid black;
+    text-align: center;
+    background-color: #F2F1E8; 
+    border-radius: 5%;
+    margin: 1rem;
+    padding: 1rem 0;
+}
+
+.message__list {
+    overflow-y: auto;
+    height: 50vh;
+}
+
+.message__both {
+    margin: 2rem auto;  
+    border-radius: 5%;
+}
+
+.message__both > span {
+   display: flex;
+   flex-direction: column; 
+}
+
+.message__form {
+    display: flex;   
+}
+
+.name__message {
+    display: flex;
+    /* margin: auto 0; */
+    justify-content: center;
+}
+
+.chat__submit {
+    margin: 1rem;
+    background-color: #F2F1E8;
+    padding: 1rem 3rem;
+    border-radius: 5%;
+}
+
+input {
+    width: 97%;
+}
+
+.live__card {
+    padding: 4rem;
+    width: 25%;
+    height: 45vh;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+    border-radius: 25%;
+    background-color: #F2F1E8;
+    margin: 5rem auto;
+}
+
+/* .live__scores {
+    margin: 5rem auto;
+} */
+
+
+h2, h3 {
+    text-align: center;
+}
+
+button {
+    background-color: none;
+    border: 1px solid #0D698B;
+    font-size: 18px;
+    width: 100%;
+    border-radius: 4px;
+    transition: .6s;
+    overflow: hidden;
+    border-radius: 5%;
+}
+
+.del__btn {
+    width: 80%;
+}
+
+button:focus {
+ outline: none;
+}
+
+button:before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255,255,255,.5);
+    width: 60px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: .5;
+    filter: blur(30px);
+    transform: translateX(-130px) skewX(-15deg);
+}
+
+button:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255,255,255,.2);
+    width: 30px;
+    height: 100%;
+    left: 30px;
+    top: 0;
+    opacity: 0;
+    filter: blur(30px);
+    transform: translateX(-100px) scaleX(-15deg);
+}
+
+button:hover {
+   background: #0D698B;
+   cursor: pointer;
+}
+
+button:hover:before {
+ transform: translateX(300px) skewX(-15deg);
+ opacity: .6;
+ transition: .7s;
+}
+
+button:hover:after {
+ transform: translateX(300px) skewX(-15deg);
+ opacity: 1;
+ transition: .7s;
 }
 
 /* .message__top {
@@ -8,3 +131,4 @@
 /* .message__form {
     padding: 2rem;
 } */
+

@@ -17,14 +17,14 @@ export const HomeDetail = (props) => {
     useEffect(() => {
         const fight = fights.find(f => f.id === parseInt(props.match.params.fightId)) || {}
         setFight(fight)
-    }, [fights])
+    }, [])
 
     // jsx for home page links, shows fight stats per fight
     return (
 
-        <section className="fight__stats card">
+        <section className="fight__stats">
 
-            <h3>Fight Stats</h3>
+            <h2>Fight Stats</h2>
 
             <div>{fight.R_fighter}   <span>vs</span>    {fight.B_fighter}</div>
 

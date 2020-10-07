@@ -1,60 +1,63 @@
 .score__card {
-    position: relative;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 120px;
-    height: 200px;
-    box-shadow: 0px 5px 17px -7px rbga(0, 0, 0, 0.75);
     display: flex;
-    margin: 3rem;
+    margin: 2rem 4rem;
+}
+
+.filtered__scores {
+    font-weight: bold;
+    font-family: "Helvetica", Arial, sans-serif;
 }
 
 .score__card:hover {
-    transform: scale(1.07)
+    /* transform: scale(1.07) */
 }
 
 .score__card > h4 {
-    position: absolute;
+    /* position: absolute;
     bottom: 20px;
     left: 20px;
     color: white;
-    width: 2rem;
+    width: 2rem; */
 }
 
-.round__form {
+
+/* .round__form {
     display: flex;
     flex-direction: column;
     width: 8rem;
     margin: 1rem;
-}
+} */
 
 .blue > input {
     margin: 5px;
 }
 
-.scores__form {
-    border: 1px solid black;
+/* .scores__form {
     height: 50vh;
-    width: 100%;   
-}
-
-.scores {
-    border: 1px solid black;
-    height: 50vh;
-    width: 100%;   
-}
+    width: 100%; 
+    margin-bottom: 5rem;
+} */
 
 .card__form {
     display: flex;
     justify-content: center;
-    margin: 1rem;
+    margin: 2rem;
     
 }
 
 .red, .blue {
-    margin: 2px;
+    margin: 0.25rem;
 }
+
+.all__scores {
+    display: flex;
+    margin: 5rem auto;
+}
+
+.scores {
+    width: 25%;
+}
+
 
 /* #root {
     display: flex;

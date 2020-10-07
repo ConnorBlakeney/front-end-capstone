@@ -71,7 +71,10 @@ export const FriendScoresList = ({ props }) => {
     // jsx that renders both fight and friend select options as well as the selected scorecard
     return (
     
-    <div className="scores" key={score.id}> 
+    <div className="scores card" key={score.id}> 
+
+        <h3>Friend's Scorecard</h3>
+
         <select onChange={(e) => { handleSubmit(e) }} defaultValue="" name="fight" ref={fightId} id="" className="form__control">
                 <option value="0">Select a fight</option>
                 {fights.map((e) => (
@@ -96,9 +99,8 @@ export const FriendScoresList = ({ props }) => {
                 ))}
         </select>
     
-        <h3>Friend's Scorecard</h3>
  
-        <div id="filtered__friend__scores">
+        <div className="filtered__scores friend">
 
                 { 
                     filteredScores && filteredFriendScores

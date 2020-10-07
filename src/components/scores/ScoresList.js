@@ -3,7 +3,6 @@ import { UserContext } from "../users/UserProvider"
 import { ScoreContext } from "./ScoresProvider";
 import { FightContext } from "../fights/FightProvider";
 import { FriendContext } from "../friends/FriendsProvider";
-import { Form } from 'reactstrap';
 import "./Scores.css"
 
 export const ScoresList = () => {
@@ -52,10 +51,10 @@ export const ScoresList = () => {
 
     return (
 
-        <div key={score.id} className="live__scores">
-
-            <h2>Live Scores and Chat</h2>
+        <div key={score.id} className="live__scores live__card">
             
+            <h3>Live Scores</h3>
+
             <select defaultValue="" name="fight__select" ref={fightId} id="" className="form__control">
                 <option value="0">Select a fight</option>
                 {fights.map((e) => (
@@ -67,26 +66,27 @@ export const ScoresList = () => {
 
             <section className="card__form">    
 
-                    <form className="round__form red">
-                        <input id="roundOneRed" className="round__one red" placeholder="Round 1 Red" type="number"></input>
-                        <input id="roundTwoRed" className="round__two red" placeholder="Round 2 Red" type="number"></input>
-                        <input id="roundThreeRed" className="round__three red" placeholder="Round 3 Red" type="number"></input>
-                        <input id="roundFourRed" className="round__four red" placeholder="Round 4 Red" type="number"></input>
-                        <input id="roundFiveRed" className="round__five red" placeholder="Round 5 Red" type="number"></input>
-                    </form>
+                <form className="round__form red">
+                    <input id="roundOneRed" className="round__one red" placeholder="Round 1 Red" type="number"></input>
+                    <input id="roundTwoRed" className="round__two red" placeholder="Round 2 Red" type="number"></input>
+                    <input id="roundThreeRed" className="round__three red" placeholder="Round 3 Red" type="number"></input>
+                    <input id="roundFourRed" className="round__four red" placeholder="Round 4 Red" type="number"></input>
+                    <input id="roundFiveRed" className="round__five red" placeholder="Round 5 Red" type="number"></input>
+                </form>
 
-                    <form className="round__form red">
-                        <input id="roundOneBlue" className="round__one blue" placeholder="Round 1 Blue" type="number"></input>
-                        <input id="roundTwoBlue" className="round__two blue" placeholder="Round 2 Blue" type="number"></input>
-                        <input id="roundThreeBlue" className="round__three blue" placeholder="Round 3 Blue" type="number"></input>
-                        <input id="roundFourBlue"className="round__four blue" placeholder="Round 4 Blue" type="number"></input>
-                        <input id="roundFiveBlue" className="round__five blue" placeholder="Round 5 Blue" type="number"></input>
-                        <button onClick={
-                            handleSubmit
-                        }>Save Scores</button>
-                    </form>
+                <form className="round__form red">
+                    <input id="roundOneBlue" className="round__one blue" placeholder="Round 1 Blue" type="number"></input>
+                    <input id="roundTwoBlue" className="round__two blue" placeholder="Round 2 Blue" type="number"></input>
+                    <input id="roundThreeBlue" className="round__three blue" placeholder="Round 3 Blue" type="number"></input>
+                    <input id="roundFourBlue"className="round__four blue" placeholder="Round 4 Blue" type="number"></input>
+                    <input id="roundFiveBlue" className="round__five blue" placeholder="Round 5 Blue" type="number"></input>
+                </form>
 
-                </section>
+            </section>
+
+            <button onClick={
+                handleSubmit
+            } >Save Scores</button>
 
         </div>
        

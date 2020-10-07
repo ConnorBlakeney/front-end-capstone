@@ -10,10 +10,7 @@ import { MessageProvider } from "./messages/MessageProvider";
 import { UserForm } from "./users/UserForm";
 import { MessageForm } from "./messages/MessageForm";
 import { ScoreProvider } from "./scores/ScoresProvider";
-import ScoresForm from "./scores/ScoresForm";
-import OldScoresForm from "./scores/OldScoresForm";
-import FriendScoresForm from "./scores/FriendScoresForm";
-import AverageScoresForm from "./scores/AverageScoresForm";
+import AllScoresForm from "./scores/AllScoresForm";
 
 export const ApplicationViews = (props) => {
     return (
@@ -36,12 +33,10 @@ export const ApplicationViews = (props) => {
                                 (props) => { 
                                     return (
                                         <>
-                                        <OldScoresForm />
-                                        <FriendScoresForm />
-                                        <AverageScoresForm />
+                                        <AllScoresForm/>
                                         <FriendForm />
                                         <UserForm history={props.history}/>
-                                       </> 
+                                        </>
                                     )
                                     }
                                 }
@@ -62,7 +57,6 @@ export const ApplicationViews = (props) => {
                                 (props) => { 
                                     return (
                                     <>
-                                        <ScoresForm />
                                         <MessageForm history={props.history}/>
                                     </> 
                                     )

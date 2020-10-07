@@ -4,7 +4,7 @@ import "./NavBar.css"
 
 export const NavBar = () => {
     return (
-        <ul className="navbar">
+        <nav className="navbar">
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/">Home</Link>
             </li>
@@ -17,6 +17,7 @@ export const NavBar = () => {
             <li className="navbar__item">
                 <Link className="navbar__link" to="/logout">Logout</Link>
             </li>
-        </ul>
+            <div id="indicator"></div>
+        </nav>
     )
 }

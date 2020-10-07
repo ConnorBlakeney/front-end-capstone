@@ -24,6 +24,10 @@ export const AverageScoresList = () => {
     useEffect(() => {
         getScore().then(getUsers).then(getFights).then(getFriends)
     }, [])
+
+    function precise(x) {
+    return Number.parseFloat(x).toPrecision(3);
+    }
     
     // on change event for fight select to trigger rendering of average score cards
     const handleSubmit = (e) => {
@@ -34,16 +38,16 @@ export const AverageScoresList = () => {
         // divide by array.length
         const scoreFind = scores.find(s => s.scoreFightId === fightSelect) || {}
         const scoreFilter = scores.filter(s => s.scoreFightId === fightSelect) || {}
-        const averageScoreOneBlue = scoreFilter.map(s => s.roundOneBlue).reduce((a, b) => a + b, 0) / scoreFilter.length
-        const averageScoreTwoBlue = scoreFilter.map(s => s.roundTwoBlue).reduce((a, b) => a + b, 0) / scoreFilter.length
-        const averageScoreThreeBlue = scoreFilter.map(s => s.roundThreeBlue).reduce((a, b) => a + b, 0) / scoreFilter.length
-        const averageScoreFourBlue = scoreFilter.map(s => s.roundFourBlue).reduce((a, b) => a + b, 0) / scoreFilter.length
-        const averageScoreFiveBlue = scoreFilter.map(s => s.roundFiveBlue).reduce((a, b) => a + b, 0) / scoreFilter.length
-        const averageScoreOneRed = scoreFilter.map(s => s.roundOneRed).reduce((a, b) => a + b, 0) / scoreFilter.length
-        const averageScoreTwoRed = scoreFilter.map(s => s.roundTwoRed).reduce((a, b) => a + b, 0) / scoreFilter.length
-        const averageScoreThreeRed = scoreFilter.map(s => s.roundThreeRed).reduce((a, b) => a + b, 0) / scoreFilter.length
-        const averageScoreFourRed = scoreFilter.map(s => s.roundFourRed).reduce((a, b) => a + b, 0) / scoreFilter.length
-        const averageScoreFiveRed = scoreFilter.map(s => s.roundFiveRed).reduce((a, b) => a + b, 0) / scoreFilter.length
+        const averageScoreOneBlue = precise(scoreFilter.map(s => s.roundOneBlue).reduce((a, b) => a + b, 0) / scoreFilter.length)
+        const averageScoreTwoBlue = precise(scoreFilter.map(s => s.roundTwoBlue).reduce((a, b) => a + b, 0) / scoreFilter.length)
+        const averageScoreThreeBlue = precise(scoreFilter.map(s => s.roundThreeBlue).reduce((a, b) => a + b, 0) / scoreFilter.length)
+        const averageScoreFourBlue = precise(scoreFilter.map(s => s.roundFourBlue).reduce((a, b) => a + b, 0) / scoreFilter.length)
+        const averageScoreFiveBlue = precise(scoreFilter.map(s => s.roundFiveBlue).reduce((a, b) => a + b, 0) / scoreFilter.length)
+        const averageScoreOneRed = precise(scoreFilter.map(s => s.roundOneRed).reduce((a, b) => a + b, 0) / scoreFilter.length)
+        const averageScoreTwoRed = precise(scoreFilter.map(s => s.roundTwoRed).reduce((a, b) => a + b, 0) / scoreFilter.length)
+        const averageScoreThreeRed = precise(scoreFilter.map(s => s.roundThreeRed).reduce((a, b) => a + b, 0) / scoreFilter.length)
+        const averageScoreFourRed = precise(scoreFilter.map(s => s.roundFourRed).reduce((a, b) => a + b, 0) / scoreFilter.length)
+        const averageScoreFiveRed = precise(scoreFilter.map(s => s.roundFiveRed).reduce((a, b) => a + b, 0) / scoreFilter.length)
 
             // if selected fight is equal to the found score id then this component renders
             setFilteredScores( fightSelect ===  scoreFind.scoreFightId  
@@ -75,8 +79,9 @@ export const AverageScoresList = () => {
     // all user scores for particular fight
     return (
 
-    <div className="scores" key={score.userId}> 
+    <div className="scores card" key={score.userId}> 
 
+        <h3>Average User Scores</h3>
         <select onChange={(e) => { handleSubmit(e) }} defaultValue="" name="fight" ref={fightId} id="" className="form__control">
                 <option value="0">Select a fight</option>
                 {fights.map((e) => (
@@ -87,10 +92,9 @@ export const AverageScoresList = () => {
                     
                 ))}
         </select>
-
-        <h3>Average User Scores</h3>
+        <span></span>
         
-        <div id="filtered__average__scores">
+        <div className="filtered__scores">
         
                 {
                     filteredScores

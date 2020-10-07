@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { MessageContext } from "./MessageProvider"
 import { MessageList } from "./MessageList"
 import { UserContext } from "../users/UserProvider"
+import { ScoresList } from "../scores/ScoresList";
 import "./Message.css"
 
 
@@ -24,42 +25,53 @@ export const MessageForm = ({ props }) => {
     // reset state to empty string
     const [input, setInput] = useState('')
 
+    const date = new Date()
     // on click event, adds message on submit
     const handleSubmit = (e) => {
 
         addMessage({
                 userId: currentUserId,
                 content: input,
-                timestamp: new Date()
+                timestamp: date.toLocaleString()
             })
 
         setInput("")
 
         e.preventDefault()
+
+        return (
+            <div>Sent!</div>
+        )
     }
 
     return (
 
         // jsx for messages
+
         <div className="message__form">
 
-            <form className="message__top">
+            <ScoresList />
+
+            <div className="message__both">
+
+            <h3>Chat</h3>
+
+                <MessageList {...props} />
+
+            <div className="chat__submit">
 
                 <input value={input} onChange={(e) => setInput(e.target.value)} className="message__input" placeholder={"What do you think?"}></input>
 
-                <button id={currentUserId} onClick={
+                <button id={currentUserId} className="submit btn" onClick={
                         handleSubmit
                         
                         } >Submit</button>
 
-            </form>
 
-            <div className="message__bottom">
 
-               <MessageList {...props} />
-                
+            </div>        
+
             </div>
-            
         </div>
     )
 }

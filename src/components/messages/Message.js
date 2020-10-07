@@ -16,6 +16,7 @@ export default ({ message }) => {
     // use ref to get message value
     const messageRef = useRef(null)
 
+    const date = new Date()
     // handles text edit on change and sends to api
     const handleSubmit = (e) => {
 
@@ -23,7 +24,7 @@ export default ({ message }) => {
                     id: message.id,
                     userId: currentUserId,
                     content: messageRef.current.textContent,
-                    timestamp: new Date(),
+                    timestamp: date.toLocaleString(),
                    
                 })
     }
@@ -36,22 +37,22 @@ export default ({ message }) => {
     return (   
 
         <section key={message.id} className="message">
+            {/* <hr/> */}
 
-            <p>{currentUser.name} </p>
+            <div className="name__message">{currentUser.name }:<span></span>
 
-            {currentUserId === message.userId ?
-            <ContentEditable innerRef={messageRef} onChange={(e) => handleSubmit(e)} id={message.id} html={message.content} /> : message.content}
-
-            <p>{message.timestamp.toLocaleString()}</p>
+            {currentUserId === message.userId ? 
+            <ContentEditable innerRef={messageRef} onChange={(e) => handleSubmit(e)} id={message.id} html={message.content}/> : message.content}
+            </div>
+            <p>Date: {message.timestamp}</p>
 
             {currentUserId === message.userId 
-            ? <button id={message.id} className="del btn"
+            ? <button id={message.id} className="del__btn"
                     onClick={
                         () => {
                                 deleteMessage(message.id)                                   
               }}>Delete</button>
             : ""}
-            
         </section>
     )
 
